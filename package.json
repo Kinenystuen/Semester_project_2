@@ -1,18 +1,14 @@
 {
   "name": "semester_project_2",
   "version": "1.0.0",
-  "description": "Semester project 2",
+  "description": "",
   "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "wd"
-  },
   "author": "Kine Odden Nystuen",
-  "license": "ISC",
-  "dependencies": {
-    "bootstrap": "^5.3.3"
-  }
+  "license": "ISC"
 }
