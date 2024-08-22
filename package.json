@@ -1,6 +1,6 @@
 {
   "name": "semester_project_2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "dependencies": {
@@ -30,15 +30,15 @@
     "sass": "^1.77.8"
   },
   "lint-staged": {
-  "*.js": [
-    "prettier --write",
-    "eslint --fix"
-  ],
-  "*.html": [
-    "prettier --write"
-  ],
-  "*.scss": [
-    "prettier --write"
-  ]
-}
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.html": [
+      "prettier --write"
+    ],
+    "*.scss": [
+      "prettier --write"
+    ]
+  }
 }
