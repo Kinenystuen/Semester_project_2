@@ -30,9 +30,15 @@
     "sass": "^1.77.8"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --cache --fix",
-      "prettier --write"
-    ]
-  }
+  "*.js": [
+    "prettier --write",
+    "eslint --fix"
+  ],
+  "*.html": [
+    "prettier --write"
+  ],
+  "*.scss": [
+    "prettier --write"
+  ]
+}
 }
