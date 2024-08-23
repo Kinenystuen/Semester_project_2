@@ -3,14 +3,6 @@
 
 @import 'custom';
 
-.btn-custom {
-  @extend .btn-warning;
-
-  &:hover {
-    @extend .btn-danger;
-  }
-}
-
 // Your custom styles
 
 body {

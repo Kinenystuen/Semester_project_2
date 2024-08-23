@@ -1,3 +1,10 @@
+// Logo
+.logo_img {
+  width: 2.5rem;
+  height: 2rem;
+  object-fit: contain;
+  margin-right: 10px;
+}
 // Log in button
 
 .custom-login-btn {
@@ -6,6 +13,16 @@
   border-width: 2px;
   font-weight: 500;
   border-radius: 4px;
+}
+.custom-btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  cursor: pointer;
+}
+
+.bg-cool-gray {
+  background-color: $cool-gray;
 }
 
 /* Hero section styling */
@@ -32,7 +49,7 @@
   position: relative;
   z-index: 1;
   text-align: left;
-  padding: 50% 10vw; /* Adjust padding as needed */
+  padding: 50% 10vw;
 }
 
 .hero-content h1 {
@@ -42,4 +59,31 @@
 .hero-content p {
   font-size: 1.25rem;
   margin-top: 10px;
+}
+
+// loader
+
+.loaderArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem auto;
+}
+.loader {
+  width: 25px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 4px solid;
+  border-color: $black #0000;
+  animation: loader 1s infinite;
+}
+.border-color-white {
+  border-color: $white #0000;
+}
+
+@keyframes loader {
+  to {
+    transform: rotate(0.5turn);
+  }
 }
