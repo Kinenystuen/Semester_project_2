@@ -43,7 +43,7 @@ export async function displaySlider() {
         imageWrapper.classList.add('image-wrapper');
         descriptionOverlay.classList.add('description-overlay'); // New class for description overlay
 
-        sliderItem.href = '/html/pages/auctions.html';
+        sliderItem.href = `/html/pages/listingitem.html?id=${list.id}`;
         if (list.media[0]) {
           image.src = list.media[0].url;
           image.alt = list.media[0].alt;
