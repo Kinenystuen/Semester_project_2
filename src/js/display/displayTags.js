@@ -25,7 +25,6 @@ export function displayTagsDropdown(tags) {
       const a = document.createElement('a');
       a.className = 'dropdown-item';
       a.textContent = tag;
-      openListings.innerText = `Selected tag: ${tag}`;
 
       a.addEventListener('click', () => evtListener.filterListingsByTag(tag));
 
