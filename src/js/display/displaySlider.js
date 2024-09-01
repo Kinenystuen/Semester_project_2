@@ -1,16 +1,15 @@
 import { getLists } from '../api/listings/getListings.js';
 import { clearHTML } from '../utilitis/clearHTML.js';
 
-export async function displaySlider() {
+export async function displaySlider(url) {
   try {
-    const data = await getLists();
+    const data = await getLists(url);
     if (data) {
       const listData = data.data;
 
       // Get the 8 latest active listings of the data
       listData.sort((a, b) => new Date(b.date) - new Date(a.date));
       const sliceData = listData.slice(0, 8);
-      // console.log('Fetched Lists:', sliceData);
 
       const activeListings = document.getElementById('activeListings');
       clearHTML(activeListings);
@@ -25,14 +24,12 @@ export async function displaySlider() {
       sliderInner.classList.add('slider-inner');
 
       sliceData.forEach((list) => {
-        // console.log(list);
-
-        // Create the slider items dynamically
+        // Create the slider items
         const sliderItem = document.createElement('a');
         const imageWrapper = document.createElement('div');
         const image = document.createElement('img');
         const titleList = document.createElement('h5');
-        const descriptionOverlay = document.createElement('div'); // New div for description
+        const descriptionOverlay = document.createElement('div');
 
         sliderItem.classList.add(
           'slider-item',
@@ -41,7 +38,7 @@ export async function displaySlider() {
           'pointer',
         );
         imageWrapper.classList.add('image-wrapper');
-        descriptionOverlay.classList.add('description-overlay'); // New class for description overlay
+        descriptionOverlay.classList.add('description-overlay');
 
         sliderItem.href = `/html/pages/listingitem.html?id=${list.id}`;
         if (list.media[0]) {
@@ -54,7 +51,6 @@ export async function displaySlider() {
         }
         titleList.innerText = list.title;
 
-        // Listing item description
         if (list.description) {
           descriptionOverlay.innerText = list.description;
         } else {
@@ -72,7 +68,7 @@ export async function displaySlider() {
       container.appendChild(sliderContainer);
       activeListings.appendChild(container);
 
-      // Create the arrow controls dynamically
+      // Arrows
       const leftArrow = document.createElement('button');
       leftArrow.classList.add('carousel-control-prev', 'slider-arrow', 'left');
       leftArrow.innerHTML = `<span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>`;
@@ -87,12 +83,11 @@ export async function displaySlider() {
       rightArrow.innerHTML = `<span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>`;
       sliderContainer.appendChild(rightArrow);
 
-      // Implement the slider functionality
       const sliderItems = document.querySelectorAll('.slider-item');
       let currentIndex = 0;
       let autoScrollInterval;
 
-      // Clone the first few items to the end for seamless looping
+      // Clone the first few items to the end for a seamless looping
       sliderItems.forEach((item) => {
         const clone = item.cloneNode(true);
         sliderInner.appendChild(clone);
@@ -102,7 +97,6 @@ export async function displaySlider() {
         const itemWidth = sliderItems[0].clientWidth + 20; // Include margin
         sliderInner.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
 
-        // When reaching the clones, reset to the original set without visible jump
         if (currentIndex >= sliderItems.length) {
           setTimeout(() => {
             sliderInner.style.transition = 'none';
@@ -140,26 +134,23 @@ export async function displaySlider() {
         autoScrollInterval = setInterval(() => {
           currentIndex++;
           updateSlider();
-        }, 3000); // Adjust the speed
+        }, 3000);
       }
 
       function stopAutoScroll() {
         clearInterval(autoScrollInterval);
       }
 
-      // Start auto-scrolling on load
       startAutoScroll();
 
-      // Stop auto-scrolling on user interaction
       sliderInner.addEventListener('mouseover', stopAutoScroll);
       sliderInner.addEventListener('mouseout', startAutoScroll);
 
-      // Responsive resizing
       window.addEventListener('resize', function () {
         updateSlider();
       });
 
-      updateSlider(); // Initialize slider on load
+      updateSlider();
     }
   } catch (error) {
     console.error('Error fetching and displaying lists:', error);
