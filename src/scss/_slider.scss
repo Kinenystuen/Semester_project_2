@@ -14,9 +14,19 @@
   transition: transform 0.5s ease;
 }
 
+// for homepage
 .slider-item {
   flex: 0 0 auto;
   width: 12rem;
+  margin: 0 10px;
+  text-align: center;
+  background-color: $light-gray;
+  border-radius: 3px;
+}
+// For auction site
+.slider-item-2 {
+  flex: 0 0 auto;
+  min-width: 12rem;
   margin: 0 10px;
   text-align: center;
   background-color: $light-gray;
