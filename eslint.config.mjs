@@ -6,7 +6,10 @@ export default [
     languageOptions: {
       ecmaVersion: 2021,
       sourceType: 'module',
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        bootstrap: 'readonly',
+      },
     },
     rules: {
       'no-unused-vars': 'warn',
