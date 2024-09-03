@@ -26,8 +26,12 @@ export function displayTagsDropdown(tags) {
       a.className = 'dropdown-item';
       a.textContent = tag;
 
-      a.addEventListener('click', () => evtListener.filterListingsByTag(tag));
-
+      //   a.addEventListener('click', () => );
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        openListings.innerText = `${tag}`;
+        evtListener.filterListingsByTag(tag);
+      });
       li.appendChild(a);
       dropdownMenu.appendChild(li);
     });
@@ -39,7 +43,7 @@ export function displayTagsDropdown(tags) {
         const allTags = dropdownMenu.querySelectorAll('a.dropdown-item');
         allTags.forEach((item) => item.classList.remove('active-tag'));
         displayListings(getListsURL);
-        clearHTML(openListings);
+        openListings.innerText = `Tags`;
       });
   } else {
     console.error('Dropdown menu not found!');
