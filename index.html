@@ -167,7 +167,10 @@
                 others to bid on, and join the exciting bidding experience.
               </p>
               <p>Join now and get 1000 credits to use on biddings.</p>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <div
+                id="regUserBtnHP"
+                class="d-grid gap-2 d-md-flex justify-content-md-start"
+              >
                 <a
                   href="/html/auth/signup.html"
                   class="btn btn-outline-primary custom-btn-outline-primary pointer"
@@ -199,6 +202,50 @@
           </div>
         </div>
       </section>
+      <!-- Modal already logged in -->
+      <div
+        class="modal fade justify-content-center align-content-center"
+        id="alreadyLoggedInModal"
+        tabindex="-1"
+        aria-labelledby="alreadyLoggedInModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="alreadyLoggedInModalLabel">
+                Already Logged In
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              You are already logged in. Would you like to sign out and register
+              a new account?
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="logoutAndRegisterBtn"
+              >
+                Sign Out and Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="py-3 pt-5">
       <ul class="nav justify-content-center pb-2">
