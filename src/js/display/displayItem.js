@@ -513,7 +513,7 @@ export async function displayListingItem(url) {
           const imgA = document.createElement('a');
           const img = document.createElement('img');
           leftArea.classList.add(
-            'd-flex',
+            'd-inline',
             'row',
             'justify-content-center',
             'align-content-center',
