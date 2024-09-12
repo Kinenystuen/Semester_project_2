@@ -45,6 +45,10 @@ export function editListing(list) {
       trashIcon.classList.add('fa', 'fa-trash', 'text-danger', 'pointer');
       trashIcon.style.cursor = 'pointer';
       trashIcon.setAttribute('aria-hidden', 'true');
+      trashIcon.title = 'Remove image';
+      trashIcon.setAttribute('type', 'button');
+      trashIcon.setAttribute('data-bs-placement', 'top');
+      new bootstrap.Tooltip(trashIcon);
 
       trashIcon.onclick = function () {
         removeMediaInput(trashIcon);
