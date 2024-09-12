@@ -1,10 +1,16 @@
 @import 'variables';
 @import '../../node_modules/bootstrap/scss/bootstrap';
+@import 'utilities';
 
 @import 'custom';
-
-// Your custom styles
+@import 'slider';
+@import 'listingItem';
 
 body {
   background-color: $light-gray;
+}
+
+footer {
+  background-color: $dark-slate-grey;
+  color: $white;
 }

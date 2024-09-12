@@ -95,7 +95,7 @@
 }
 
 /* Modal styles */
-.modal {
+.modalImg {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -109,7 +109,7 @@
 }
 
 /* Modal Content (the image) */
-.modal-content {
+.modalImg-content {
   margin: auto;
   display: block;
   max-height: 90vh;
@@ -139,7 +139,7 @@
 }
 
 /* Add Animation - Zoom in the Modal */
-.modal-content {
+.modalImg-content {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
