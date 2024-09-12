@@ -1,11 +1,12 @@
 import { getLists } from '../api/listings/getListings.js';
 import { clearHTML } from '../utilitis/clearHTML.js';
+import { returnMessage } from '../utilitis/errorMessage.js';
+import { truncateText } from '../utilitis/truncateText.js';
 
 export async function displayListings(url) {
   try {
     const data = await getLists(url);
     if (data) {
-      console.log(data);
       const listData = data.data;
 
       const activeListings = document.getElementById('listings');
@@ -19,6 +20,11 @@ export async function displayListings(url) {
       rowContainer.classList.add('row', 'g-2', 'justify-content-start');
       listingNumber.innerText = `${listData.length} listings`;
 
+      if (listData.length === 0) {
+        const message = `No listings found`;
+        returnMessage(activeListings, message);
+        return;
+      }
       listData.forEach((list) => {
         const col = document.createElement('div');
         col.classList.add('col', 'col-sm-6', 'col-md-4', 'col-lg-3');
@@ -127,9 +133,4 @@ export async function displayListings(url) {
   } catch (error) {
     console.error('Error fetching and displaying lists:', error);
   }
-}
-
-// Helper function to truncate text
-function truncateText(text, maxLength) {
-  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 }
