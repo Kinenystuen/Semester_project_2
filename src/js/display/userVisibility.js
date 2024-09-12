@@ -1,8 +1,9 @@
-import { getProfile } from '../api/auth/status.js';
+import * as fetch from './../api/fetch/index.js';
 
 // Function to update profile dropdown
-export function updateProfileDD() {
-  const profileData = getProfile();
+export async function updateProfileDD() {
+  const thisData = await fetch.fetchProfile(fetch.getOwnProfileUrl);
+  const profileData = thisData.data;
 
   const userName = document.getElementById('username');
   const userImg = document.getElementById('userImg');
