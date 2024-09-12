@@ -11,7 +11,6 @@ export async function displayProfileListings(url) {
   try {
     const data = await fetch.fetchProfile(url);
     const listData = data.data;
-    console.log(listData);
     const listingNumber = document.getElementById('yourListings');
     clearHTML(profileYourListings);
 
@@ -165,7 +164,6 @@ export async function displayProfileListings(url) {
           const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
 
           confirmDeleteBtn.addEventListener('click', function () {
-            console.log('deleted');
             const listingData = { id: list.id };
             fetch.deleteListing(listingData);
             deleteModal.hide();
@@ -259,7 +257,6 @@ export async function displayProfileListings(url) {
       card.appendChild(imageWrapper);
       card.appendChild(cardBody);
       col.appendChild(card);
-      console.log(listData);
       if (auctionIsActive) {
         const username = storage.load('profile').name;
         if (fetch.idProfile === null || fetch.idProfile === username) {

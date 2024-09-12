@@ -7,7 +7,6 @@ export async function displayProfileListings(listData) {
   const yourWonBids = document.getElementById('yourWonBids');
 
   try {
-    console.log(listData.wins);
     clearHTML(profileBidsWins);
     if (listData.wins.length === 0) {
       profileBidsWins.classList.add('vh-40');
