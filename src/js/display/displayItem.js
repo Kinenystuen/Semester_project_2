@@ -8,7 +8,6 @@ export async function displayListingItem(url) {
   try {
     const data = await getList(url);
     if (data) {
-      // images = imageArray;
       listData = data.data;
       // Set window title and breadcrums
       document.title = 'AuctionHub | ' + `${listData.title}`;
@@ -115,8 +114,6 @@ export async function displayListingItem(url) {
 
       //
       const totalImages = listData.media.length;
-      console.log(totalImages);
-      console.log('current' + currentIndex);
 
       // Function to show hide arrows on thumbnail container
       function updateArrowsVisibility() {
@@ -197,9 +194,7 @@ export async function displayListingItem(url) {
       // Add event listeners to the arrows
       document.getElementById('next').addEventListener('click', showNext);
       document.getElementById('prev').addEventListener('click', showPrev);
-      // Add event listener to the close button
       document.querySelector('.close').addEventListener('click', closeModal);
-      // Also close modal if the user clicks anywhere outside the image
       window.addEventListener('click', (event) => {
         const modal = document.getElementById('imageModal');
         if (event.target === modal) {
