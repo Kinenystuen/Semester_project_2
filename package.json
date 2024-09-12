@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "vite": "^5.4.3"
   },
   "scripts": {
     "build": "sass src/scss:dist/css",
@@ -14,7 +15,8 @@
     "format": "prettier -w src/**/*.js",
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint src/**/*.js --cache --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "vite": "vite"
   },
   "author": "Kine Odden Nystuen",
   "license": "ISC",
