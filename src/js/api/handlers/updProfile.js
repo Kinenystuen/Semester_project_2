@@ -1,4 +1,4 @@
-import { getUpdProfileURL, updateProfile } from '../fetch/updProfile.js';
+import { updateProfile } from '../fetch/updProfile.js';
 const updateProfileForm = document.getElementById('updateProfileForm');
 
 const profileData = localStorage.getItem(`profile`);
@@ -25,7 +25,7 @@ export function setUpdateProfileForm() {
         };
       }
       // Send new data to api
-      updateProfile(getUpdProfileURL, profileData);
+      updateProfile(profileData);
     });
   }
 }
