@@ -6,20 +6,22 @@ const params = new URLSearchParams(queryString);
 const idSelectedItem = params.get('id');
 
 export const selUrl =
-  constants.apiHostUrl + constants.apiAction + '/' + idSelectedItem;
-console.log(selUrl);
+  constants.apiHostUrl +
+  constants.apiAction +
+  '/' +
+  idSelectedItem +
+  '?_seller=true&_bids=true';
 
 export async function getList(url) {
   try {
     const responseLI = await fetch(url);
     if (responseLI.ok) {
       const list = await responseLI.json();
-      console.log(list);
       return list;
     } else {
-      throw new Error(`Failed to fetch post: ${responseLI.status}`);
+      throw new Error(`Failed to fetch data: ${responseLI.status}`);
     }
   } catch (error) {
-    console.log('Error selectedMovie: ' + error);
+    console.log('Error: ' + error);
   }
 }

@@ -18,9 +18,9 @@ export async function getLists(url) {
       const lists = await response.json();
       return lists;
     } else {
-      throw new Error(`Failed to fetch post: ${response.statusText}`);
+      throw new Error(`Failed to fetch data: ${response.statusText}`);
     }
   } catch (error) {
-    console.error('Error fetching post:', error);
+    console.error('Error fetching data:', error);
   }
 }
