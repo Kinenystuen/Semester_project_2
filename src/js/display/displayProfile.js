@@ -14,15 +14,7 @@ export async function displayProfile(url) {
     if (data) {
       const profileData = data.data;
       display.displayProfileListings(profileData);
-      if (fetch.idProfile === null) {
-        const credit = document.getElementById('credit');
-        credit.innerText = profileData.credits;
 
-        createListingBtn.classList.remove('d-none');
-        createListingBtn.classList.add('d-block');
-        creditDiv.classList.remove('d-none');
-        creditDiv.classList.add('d-block');
-      }
       const username = storage.load('profile').name;
 
       document.title = 'AuctionHub | Profile - ' + `${profileData.name}`;
@@ -117,7 +109,16 @@ export async function displayProfile(url) {
       ddMenuBtn.appendChild(ddMenuBtnI);
       ddMenuBtn.appendChild(ddMenuUl);
 
-      if (profileData.name === username) {
+      // If visited profile is own profile, display credit, edit btns etc
+      if (fetch.idProfile === null || profileData.name === username) {
+        const credit = document.getElementById('credit');
+        credit.innerText = profileData.credits;
+
+        createListingBtn.classList.remove('d-none');
+        createListingBtn.classList.add('d-block');
+        creditDiv.classList.remove('d-none');
+        creditDiv.classList.add('d-block');
+
         updBtn.appendChild(ddMenuBtn);
       }
 
