@@ -9,36 +9,21 @@
  * const formattedDate = formatDateMMDDYYHT(post.created);
  * // Formatted date value returns as "5/13/2024, 09:27"
  */
-export function formatDateMMDDYYHT(dateString) {
-  const formattedDate = new Date(dateString).toLocaleDateString('en-US', {
+export function formatDateDDMMYYHT(dateString) {
+  const date = new Date(dateString);
+
+  const formatter = new Intl.DateTimeFormat('en-GB', {
     year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
     hour12: false,
   });
-  return formattedDate;
-}
+  const formattedDateParts = formatter.formatToParts(date);
 
-// Function to format date
-export function formatDateMonthDDYY(dateString) {
-  const formattedDate = new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-  return formattedDate;
-}
+  // Reconstruct the formatted date string
+  const formattedDate = `${formattedDateParts.find((part) => part.type === 'day').value}.${formattedDateParts.find((part) => part.type === 'month').value}.${formattedDateParts.find((part) => part.type === 'year').value}, ${formattedDateParts.find((part) => part.type === 'hour').value}:${formattedDateParts.find((part) => part.type === 'minute').value}`;
 
-export function formatDateMonthDDYYHT(dateString) {
-  const formattedDate = new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    hour12: false,
-  });
   return formattedDate;
 }
