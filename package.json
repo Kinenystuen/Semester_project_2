@@ -11,12 +11,12 @@
     "build": "sass src/scss:dist/css",
     "watch": "sass --watch src/scss:dist/css",
     "start": "live-server",
-    "dev": "npm-run-all --parallel watch start",
     "format": "prettier -w src/**/*.js",
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint src/**/*.js --cache --fix",
     "prepare": "husky install",
-    "vite": "vite"
+    "vite": "vite",
+    "dev": "npm-run-all --parallel watch vite"
   },
   "author": "Kine Odden Nystuen",
   "license": "ISC",
