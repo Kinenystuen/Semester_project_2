@@ -274,6 +274,7 @@ export async function displayListingItem(url) {
       );
 
       const badgeContainer = document.createElement('div');
+      const listUploaded = document.createElement('p');
       const listTitle = document.createElement('h1');
       const listDescription = document.createElement('p');
       infoContainer.classList.add('container', 'mt-4', 'col-12', 'col-md-6');
@@ -317,15 +318,20 @@ export async function displayListingItem(url) {
       sellerName.classList.add('my-1');
       sellerName.innerText = `Uploaded by - ${listData.seller.name}`;
 
+      console.log(listData);
       sellerAvatarDiv.appendChild(sellerAvatar);
       sellerNameDiv.appendChild(sellerAvatarDiv);
       sellerNameDiv.appendChild(sellerName);
+      listUploaded.innerText = `${formatDateDDMMYYHT(listData.created)}`;
+      listUploaded.classList.add('text-muted', 'my-1', 'small', 'p-0');
       listTitle.classList.add('display-5');
       listTitle.innerText = listData.title;
       listDescription.innerText = listData.description;
 
       infoContainer.appendChild(badgeContainer);
+
       infoContainer.appendChild(sellerNameDiv);
+      infoContainer.appendChild(listUploaded);
       infoContainer.appendChild(listTitle);
       infoContainer.appendChild(listDescription);
 
