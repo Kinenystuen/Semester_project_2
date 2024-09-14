@@ -4,6 +4,7 @@ import { displayListings, makeListings } from './../display/displayListings.js';
 import * as constants from './../api/constants.js';
 
 const listings = document.getElementById('listings');
+const pageButtons = document.getElementById('pageButtons');
 // Sort listings by date
 export function sortListingsByDate(listings, order = 'newest') {
   return listings.sort((a, b) => {
@@ -24,8 +25,9 @@ async function fetchAndDisplaySortedListings(url, order) {
     const data = await getLists(url);
     if (data && data.data) {
       const sortedListings = sortListingsByDate(data.data, order);
+      clearHTML(pageButtons);
       clearHTML(listings);
-      makeListings(sortedListings);
+      makeListings(data, sortedListings);
     }
   } catch (error) {
     console.error('Error fetching and displaying lists:', error);
@@ -66,8 +68,9 @@ async function fetchAndDisplayListings(url, filter = 'endingSoon') {
       } else if (filter === 'ended') {
         filteredListings = getEndedListings(data.data);
       }
+      clearHTML(pageButtons);
       clearHTML(listings);
-      makeListings(filteredListings);
+      makeListings(data, filteredListings);
     }
   } catch (error) {
     console.error('Error fetching and displaying lists:', error);
@@ -82,6 +85,7 @@ export async function sortListings() {
       const apiListUrl = `${constants.apiHostUrl}${constants.apiAction}`;
       const paramsTrue = '?_active=true';
       const newUrl = `${apiListUrl}${paramsTrue}`;
+      clearHTML(pageButtons);
       clearHTML(listings);
       displayListings(newUrl);
     });
@@ -109,5 +113,3 @@ export async function sortListings() {
     displayListings(getListsURL);
   });
 }
-// Automatically initialize on window load
-window.onload = sortListings;
