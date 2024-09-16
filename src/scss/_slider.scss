@@ -1,0 +1,59 @@
+// Slider
+@import 'variables';
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.slider-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+// for homepage
+.slider-item {
+  flex: 0 0 auto;
+  width: 12rem;
+  margin: 0 10px;
+  text-align: center;
+  background-color: $light-gray;
+  border-radius: 3px;
+}
+//For auction site
+.slider-item-2 {
+  flex: 0 0 auto;
+  min-width: 12rem;
+  margin: 0 10px;
+  text-align: center;
+  background-color: $light-gray;
+  border-radius: 3px;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.slider-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px 3px 0 0;
+}
+
+.slider-arrow.left {
+  left: 0px;
+}
+
+.slider-arrow.right {
+  right: 0px;
+}

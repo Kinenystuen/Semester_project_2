@@ -1,0 +1,59 @@
+// Custun colors
+
+// The bootstrap palette
+$indigo: #916fc8;
+$purple: #5d3b9c;
+$pink: #ab4578;
+$red: #fa2f44;
+$yellow: #ffdf7e;
+$teal: #9fffe2;
+$cyan: #8eecff;
+
+// My color palette
+$blue: #3498db;
+$green: #2ecc71; // Emerald Green
+$orange: #f39c12; // Soft Orange
+
+$light-gray: #f7f7f7;
+$cool-gray: #d1d5db;
+$dark-slate-grey: #2c3e50;
+$dark-charcoal: #333333;
+
+// Custum fonts //
+
+/* Apply Poppins to all header elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+  font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Apply PT Sans to all paragraph elements */
+body,
+p,
+.lead {
+  font-family: 'PT Sans', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Adding Poppins to specific classes or Bootstrap components */
+.navbar-brand,
+.nav-link,
+.btn {
+  font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Optional: Apply PT Sans */
+.text-body,
+.form-control,
+.card-text {
+  font-family: 'PT Sans', Verdana, Geneva, Tahoma, sans-serif;
+}
