@@ -152,6 +152,12 @@
   border-color: #2ecc71;
   transition: background-color 0.3s ease;
 }
+.buttonCustom:disabled {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  color: #6c757d;
+}
 .dropdown-toggle:focus i {
   color: #2ecc71;
   transition: color 0.3s ease;
@@ -259,4 +265,16 @@
 
 #listingCard:hover div img {
   transform: scale(1.05);
+}
+
+.profileCard {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profileCard:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
