@@ -26,7 +26,7 @@ export async function makeListings(data, listData) {
 
   // Create the grid container element
   const gridContainer = document.createElement('div');
-  gridContainer.classList.add('container', 'mt-3');
+  gridContainer.classList.add('mt-3');
   const rowContainer = document.createElement('div');
   rowContainer.classList.add('row', 'g-2', 'justify-content-start');
   listingNumber.innerText = `${listData.length} listings`;
