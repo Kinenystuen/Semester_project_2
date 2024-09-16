@@ -5,3 +5,5 @@ export * from './getTag.js';
 export * from './registerBtn.js';
 export * from './updImgLive.js';
 export * from './sortListings.js';
+export * from './nextPage.js';
+export * from './evtSignInUpBtn.js';
