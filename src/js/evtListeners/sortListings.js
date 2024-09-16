@@ -78,6 +78,7 @@ async function fetchAndDisplayListings(url, filter = 'endingSoon') {
 }
 
 export async function sortListings() {
+  const sortedType = document.getElementById('sortedType');
   // Sort active listings
   document
     .getElementById('activeListings')
@@ -85,6 +86,7 @@ export async function sortListings() {
       const apiListUrl = `${constants.apiHostUrl}${constants.apiAction}`;
       const paramsTrue = '?_active=true';
       const newUrl = `${apiListUrl}${paramsTrue}`;
+      sortedType.innerText = 'Active listings';
       clearHTML(pageButtons);
       clearHTML(listings);
       displayListings(newUrl);
@@ -92,24 +94,29 @@ export async function sortListings() {
 
   // Sort by newest
   document.getElementById('newListings').addEventListener('click', function () {
+    sortedType.innerText = 'Descending by date';
     fetchAndDisplaySortedListings(getListsURL, 'newest');
   });
   // Sort by oldest
   document.getElementById('oldListings').addEventListener('click', function () {
+    sortedType.innerText = 'Ascending by date';
     fetchAndDisplaySortedListings(getListsURL, 'oldest');
   });
   // Sort ended listings
   document
     .getElementById('endedListings')
     .addEventListener('click', function () {
+      sortedType.innerText = 'Ended listings';
       fetchAndDisplayListings(getListsURL, 'ended');
     });
   // Sort by ending soon listings
   document.getElementById('endingSoon').addEventListener('click', function () {
+    sortedType.innerText = 'Ending soon';
     fetchAndDisplayListings(getListsURL, 'endingSoon');
   });
   // Clear sorting
   document.getElementById('clearSort').addEventListener('click', function () {
+    sortedType.innerText = 'Sort';
     displayListings(getListsURL);
   });
 }
