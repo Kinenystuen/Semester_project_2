@@ -8,7 +8,7 @@
     "vite": "^5.4.3"
   },
   "scripts": {
-    "build": "sass src/scss:dist/css",
+    "build": "sass src/scss:dist/css && npm run copy-html",
     "watch": "sass --watch src/scss:dist/css",
     "start": "live-server",
     "format": "prettier -w src/**/*.js",
@@ -17,7 +17,8 @@
     "prepare": "husky install",
     "vite": "vite",
     "dev": "npm-run-all --parallel watch vite",
-    "vite-build": "vite build"
+    "vite-build": "vite build",
+    "copy-html": "cp index.html dist/"
   },
   "repository": {
     "type": "git",
