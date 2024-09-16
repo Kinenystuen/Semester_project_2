@@ -38,7 +38,13 @@ export async function login(profile, action, method) {
       storage.save('token', accessToken);
       storage.save('profile', user);
       clearHTML(message);
-      window.location.href = '/html/pages/auctions.html';
+      const lastVisitedPage = localStorage.getItem('lastVisitedPage');
+      if (lastVisitedPage) {
+        window.location.href = lastVisitedPage;
+      } else {
+        window.location.href = '/html/pages/auctions.html';
+      }
+
       return user;
     } else {
       const errorResponse = await response.json();
