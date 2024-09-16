@@ -14,7 +14,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -33,7 +32,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Adjust Node.js version as necessary
+          node-version: '18'
 
       # Install dependencies
       - name: Install dependencies
@@ -43,13 +42,17 @@ jobs:
       - name: Build the project
         run: npm run build
 
+      # Verify that the files exist (for debugging)
+      - name: List directory contents
+        run: ls -al
+
       # Upload the necessary files for GitHub Pages (both root files and dist/css/)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: |
-            index.html  # This ensures the index.html file is uploaded
-            dist/css    # This ensures the compiled CSS files are uploaded
+            ./index.html  # Ensure the correct path for index.html
+            ./dist/css    # Ensure the correct path for the compiled CSS files
 
       - name: Deploy to GitHub Pages
         id: deployment
