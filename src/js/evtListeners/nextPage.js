@@ -1,95 +1,89 @@
 import { getLists } from '../api/listings/getListings.js';
 import * as display from './../display/index.js';
 import * as constants from './../api/constants.js';
+import { fetchProfiles } from '../api/fetch/apiProfiles.js';
+
 let currentPage = 1;
 let isLastPage = false;
 let isFirstPage = true;
+const visibleData = document.querySelectorAll('.visibleData');
 
-const nextPageBtn = document.getElementById('nextPage');
-const previousPageBtn = document.getElementById('previousPage');
-const visibleListings = document.getElementById('visibleListings');
-if (previousPageBtn) {
-  previousPageBtn.disabled = true;
-}
-
-// Function to fetch the next page
-async function fetchNextPage(baseUrl) {
-  if (isLastPage) {
-    console.log('No more pages to load');
-    return;
-  }
-
+// Function to fetch data and update pagination
+async function fetchData(baseUrl, fetchFunction, renderFunction) {
   try {
-    const url = `${baseUrl}?page=${currentPage + 1}`;
-    const data = await getLists(url);
+    const url = `${baseUrl}?page=${currentPage}`;
+    const data = await fetchFunction(url);
 
     if (data && data.data) {
-      display.makeListings(data);
+      renderFunction(data);
+
       currentPage = data.meta.currentPage;
       isLastPage = data.meta.isLastPage;
       isFirstPage = data.meta.isFirstPage;
-      visibleListings.innerText = `Page ${currentPage} / ${data.meta.pageCount}`;
+      visibleData.forEach((btn) => {
+        btn.innerText = `Page ${currentPage} / ${data.meta.pageCount}`;
+      });
 
-      // Toggle button visibility
-      if (isLastPage) {
-        nextPageBtn.disabled = true;
-      } else {
-        nextPageBtn.disabled = false;
-      }
-
-      previousPageBtn.disabled = false;
-      previousPageBtn.classList.remove('d-none');
+      // Enable/disable buttons
+      updatePaginationButtons();
     } else {
-      console.error('Error fetching listings:', data);
+      console.error('Error fetching data:', data);
     }
   } catch (error) {
-    console.error('Error fetching listings:', error);
+    console.error('Error fetching data:', error);
   }
 }
 
-// Function to fetch the previous page
-async function fetchPreviousPage(baseUrl) {
-  if (isFirstPage) {
-    console.log('You are on the first page');
+// Function to update button states
+function updatePaginationButtons() {
+  const nextPageBtns = document.querySelectorAll('.nextPageBtn');
+  const previousPageBtns = document.querySelectorAll('.previousPageBtn');
+
+  nextPageBtns.forEach((btn) => {
+    btn.disabled = isLastPage;
+  });
+
+  previousPageBtns.forEach((btn) => {
+    btn.disabled = isFirstPage;
+  });
+}
+
+// Function to handle next and previous page clicks
+export function setupPagination(pageType) {
+  let baseUrl;
+  let fetchFunction;
+  let renderFunction;
+
+  // Determine if we're dealing with listings or profiles
+  if (pageType === 'listings') {
+    baseUrl = `${constants.apiHostUrl}${constants.apiAction}`;
+    fetchFunction = getLists;
+    renderFunction = display.makeListings;
+  } else if (pageType === 'profiles') {
+    baseUrl = `${constants.apiHostUrl}${constants.apiProfiles}`;
+    fetchFunction = fetchProfiles;
+    renderFunction = display.makeProfileCards;
+  } else {
+    console.error('Invalid page type specified.');
     return;
   }
 
-  try {
-    const url = `${baseUrl}?page=${currentPage - 1}`;
-    const data = await getLists(url);
-
-    if (data && data.data) {
-      display.makeListings(data);
-
-      currentPage = data.meta.currentPage;
-      isFirstPage = data.meta.isFirstPage;
-      isLastPage = data.meta.isLastPage;
-      visibleListings.innerText = `Page ${currentPage} /${data.meta.pageCount}`;
-
-      if (isFirstPage) {
-        previousPageBtn.disabled = true;
-      } else {
-        previousPageBtn.disabled = false;
-      }
-
-      nextPageBtn.disabled = false;
-      nextPageBtn.classList.remove('d-none');
-    } else {
-      console.error('Error fetching listings:', data);
-    }
-  } catch (error) {
-    console.error('Error fetching listings:', error);
-  }
-}
-
-export function nextPageBtns() {
-  nextPageBtn.addEventListener('click', function () {
-    const baseUrl = `${constants.apiHostUrl}${constants.apiAction}`;
-    fetchNextPage(baseUrl);
+  // Add event listeners for all instances of the "Next" buttons
+  document.querySelectorAll('.nextPageBtn').forEach((btn) => {
+    btn.addEventListener('click', function () {
+      currentPage += 1;
+      fetchData(baseUrl, fetchFunction, renderFunction);
+    });
   });
 
-  previousPageBtn.addEventListener('click', function () {
-    const baseUrl = `${constants.apiHostUrl}${constants.apiAction}`;
-    fetchPreviousPage(baseUrl);
+  // Add event listeners for all instances of the "Previous" buttons
+  document.querySelectorAll('.previousPageBtn').forEach((btn) => {
+    btn.addEventListener('click', function () {
+      currentPage -= 1;
+      fetchData(baseUrl, fetchFunction, renderFunction);
+    });
   });
+
+  // Initial data fetch
+  fetchData(baseUrl, fetchFunction, renderFunction);
 }
