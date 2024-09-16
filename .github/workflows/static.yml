@@ -39,12 +39,12 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        - name: List root directory contents
-          run: ls -al
+
+      - name: List root directory contents
+        run: ls -al
 
       - name: List dist directory contents
         run: ls -al dist
-
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
