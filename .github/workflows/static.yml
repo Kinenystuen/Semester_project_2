@@ -45,7 +45,7 @@ jobs:
 
       # Build the project
       - name: Build Project
-        run: npm run build
+        run: npm run dev
 
       # Upload the build output folder (usually `dist`)
       - name: Upload artifact
