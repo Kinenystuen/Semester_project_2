@@ -1,12 +1,8 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
@@ -28,31 +24,31 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v4
 
-      # Set up Node.js environment to install dependencies
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Build the project (this will compile SCSS to CSS)
       - name: Build the project
         run: npm run build
 
-      # Verify that the files exist (for debugging)
-      - name: List directory contents
+      # Verify that index.html and dist/css exist
+      - name: List root directory contents
         run: ls -al
 
-      # Upload the necessary files for GitHub Pages (both root files and dist/css/)
+      - name: List dist directory contents
+        run: ls -al dist/css
+
+      # Upload the necessary files for GitHub Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: |
-            ./index.html  # Ensure the correct path for index.html
-            ./dist/css    # Ensure the correct path for the compiled CSS files
+            ./index.html
+            ./dist
 
       - name: Deploy to GitHub Pages
         id: deployment
