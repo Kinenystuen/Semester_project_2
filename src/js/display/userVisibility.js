@@ -1,3 +1,4 @@
+import * as evtListener from './../evtListeners/index.js';
 import * as fetch from './../api/fetch/index.js';
 
 // Function to update profile dropdown
@@ -47,5 +48,6 @@ export function toggleLoginVisibility(loggedIn) {
 
     userDropdownContainer.setAttribute('data-visible', 'false');
     userDropdownContainer.style.display = 'none';
+    evtListener.eventSignInUpBtn();
   }
 }
