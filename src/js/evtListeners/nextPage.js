@@ -9,9 +9,9 @@ let isFirstPage = true;
 const visibleData = document.querySelectorAll('.visibleData');
 
 // Function to fetch data and update pagination
-async function fetchData(baseUrl, fetchFunction, renderFunction) {
+async function fetchData(baseUrl, fetchFunction, renderFunction, params) {
   try {
-    const url = `${baseUrl}?page=${currentPage}`;
+    const url = `${baseUrl}?page=${currentPage}${params}`;
     const data = await fetchFunction(url);
 
     if (data && data.data) {
@@ -53,6 +53,7 @@ export function setupPagination(pageType) {
   let baseUrl;
   let fetchFunction;
   let renderFunction;
+  let params = '';
 
   // Determine if we're dealing with listings or profiles
   if (pageType === 'listings') {
@@ -63,6 +64,7 @@ export function setupPagination(pageType) {
     baseUrl = `${constants.apiHostUrl}${constants.apiProfiles}`;
     fetchFunction = fetchProfiles;
     renderFunction = display.makeProfileCards;
+    params = '&_listings=true&_wins=true';
   } else {
     console.error('Invalid page type specified.');
     return;
@@ -72,7 +74,7 @@ export function setupPagination(pageType) {
   document.querySelectorAll('.nextPageBtn').forEach((btn) => {
     btn.addEventListener('click', function () {
       currentPage += 1;
-      fetchData(baseUrl, fetchFunction, renderFunction);
+      fetchData(baseUrl, fetchFunction, renderFunction, params);
     });
   });
 
@@ -80,10 +82,10 @@ export function setupPagination(pageType) {
   document.querySelectorAll('.previousPageBtn').forEach((btn) => {
     btn.addEventListener('click', function () {
       currentPage -= 1;
-      fetchData(baseUrl, fetchFunction, renderFunction);
+      fetchData(baseUrl, fetchFunction, renderFunction, params);
     });
   });
 
   // Initial data fetch
-  fetchData(baseUrl, fetchFunction, renderFunction);
+  fetchData(baseUrl, fetchFunction, renderFunction, params);
 }

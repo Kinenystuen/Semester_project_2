@@ -25,6 +25,7 @@ export async function searchListings() {
 }
 export async function searchProfiles() {
   const profilesDisplay = document.getElementById('profilesDisplay');
+  const params = '_listings=true&_wins=true';
 
   // Search Functionality
   const searchInputP = document.querySelector('#search-input');
@@ -33,7 +34,7 @@ export async function searchProfiles() {
     searchInputP.addEventListener('keyup', function () {
       const searchInputTrim = searchInputP.value.trim();
       if (searchInputTrim.length > 0) {
-        const newUrl = `${constants.apiHostUrl}${constants.apiProfiles}/search?q=${encodeURIComponent(searchInputTrim)}`;
+        const newUrl = `${constants.apiHostUrl}${constants.apiProfiles}/search?q=${encodeURIComponent(searchInputTrim)}&${params}`;
         clearHTML(profilesDisplay);
         display.displayProfiles(newUrl);
       } else {
