@@ -34,7 +34,6 @@ export async function searchProfiles() {
       const searchInputTrim = searchInputP.value.trim();
       if (searchInputTrim.length > 0) {
         const newUrl = `${constants.apiHostUrl}${constants.apiProfiles}/search?q=${encodeURIComponent(searchInputTrim)}`;
-        console.log(newUrl);
         clearHTML(profilesDisplay);
         display.displayProfiles(newUrl);
       } else {
