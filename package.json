@@ -16,7 +16,8 @@
     "lint-fix": "eslint src/**/*.js --cache --fix",
     "prepare": "husky install",
     "vite": "vite",
-    "dev": "npm-run-all --parallel build vite"
+    "dev": "npm-run-all --parallel build vite",
+    "vite-build": "vite build"
   },
   "repository": {
     "type": "git",
