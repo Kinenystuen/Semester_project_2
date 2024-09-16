@@ -39,7 +39,10 @@ jobs:
 
       - name: Build the project
         run: |
-          npm run dev # Compile Sass and build Vite project
+          npm run build
+      - name: Host the project
+        run: |
+          npm run vite
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
