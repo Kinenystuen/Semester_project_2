@@ -4,6 +4,7 @@ import * as storage from './../api/storage/index.js';
 import * as handlers from './../api/handlers/index.js';
 import * as evtListeners from './../evtListeners/index.js';
 import * as display from './displayBidWins.js';
+import * as status from './../api/auth/index.js';
 import { createListingForm } from '../api/handlers/createListing.js';
 
 export async function displayProfile(url) {
@@ -11,13 +12,20 @@ export async function displayProfile(url) {
     const data = await fetch.fetchProfile(url);
     const creditDiv = document.getElementById('creditDiv');
     const createListingBtn = document.getElementById('createListingBtn');
+    const loggedIn = status.isLoggedIn();
     if (data) {
       const profileData = data.data;
       display.displayProfileListings(profileData);
+      if (loggedIn) {
+        const profileLink = document.querySelector('.profileLinkA');
+        profileLink.href = '/html/pages/profiles.html';
+        profileLink.classList.remove('disabled');
+      }
 
       const username = storage.load('profile').name;
 
       document.title = 'AuctionHub | Profile - ' + `${profileData.name}`;
+      const BCProfileName = document.getElementById('BCProfileName');
       const profileBio = document.getElementById('profileBio');
       const profileImg = document.getElementById('profileImg');
       const profileName = document.getElementById('profileName');
@@ -111,6 +119,7 @@ export async function displayProfile(url) {
 
       // If visited profile is own profile, display credit, edit btns etc
       if (fetch.idProfile === null || profileData.name === username) {
+        BCProfileName.innerText = `Your profile`;
         const credit = document.getElementById('credit');
         credit.innerText = profileData.credits;
 
@@ -120,6 +129,8 @@ export async function displayProfile(url) {
         creditDiv.classList.add('d-block');
 
         updBtn.appendChild(ddMenuBtn);
+      } else {
+        BCProfileName.innerText = `${profileData.name}'s profile`;
       }
 
       const createListingModal = document.getElementById('createListingModal');
