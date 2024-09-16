@@ -41,7 +41,13 @@ export function makeProfileCards(data) {
     const profileInfoName = document.createElement('h2');
     const profileBadgeDiv = document.createElement('div');
 
-    profileCardCol.classList.add('col', 'col-sm-12', 'col-md-12', 'col-lg-6');
+    profileCardCol.classList.add(
+      'col-12',
+      'col-sm-12',
+      'col-md-12',
+      'col-lg-6',
+      'flex-wrap',
+    );
     profileCard.classList.add(
       'card',
       'm-1',
