@@ -14,7 +14,7 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -29,25 +29,28 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v4
 
+      # Set up Node.js environment to install dependencies
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Adjust if necessary
+          node-version: '18' # Adjust Node.js version as necessary
 
-      - name: Install dependencies (if any)
+      # Install dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Build the project (skip this if you don't have a build process)
+      # Build the project (this will compile SCSS to CSS)
+      - name: Build the project
         run: npm run build
 
-      # Upload the entire repository content (including index.html in root)
+      # Upload the necessary files for GitHub Pages (both root files and dist/css/)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload everything in the root directory (since index.html is not in a folder)
-          path: '.'
+          path: |
+            index.html  # This ensures the index.html file is uploaded
+            dist/css    # This ensures the compiled CSS files are uploaded
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
