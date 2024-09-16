@@ -7,15 +7,18 @@ export async function displayListings(url) {
   try {
     const data = await getLists(url);
     if (data) {
-      const listData = data.data;
-      makeListings(listData);
+      makeListings(data);
     }
   } catch (error) {
     console.error('Error fetching and displaying lists:', error);
   }
 }
 
-export async function makeListings(listData) {
+export async function makeListings(data, listData) {
+  if (!Array.isArray(listData) || listData === null || listData === undefined) {
+    listData = data.data;
+  }
+
   const listings = document.getElementById('listings');
   listings.classList.add('mb-5');
   const listingNumber = document.getElementById('listingNumber');
