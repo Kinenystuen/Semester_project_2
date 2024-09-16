@@ -9,7 +9,7 @@ export async function setLogOut() {
     try {
       logOutBtn.classList.add('loading');
       logOut();
-      window.location.href = '/index.html';
+      window.location.href = '/Semester_project_2/';
     } catch (error) {
       alert('There was a problem logging out', error);
     } finally {

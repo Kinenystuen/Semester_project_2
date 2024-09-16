@@ -42,7 +42,7 @@ export async function login(profile, action, method) {
       if (lastVisitedPage) {
         window.location.href = lastVisitedPage;
       } else {
-        window.location.href = '/html/pages/auctions.html';
+        window.location.href = 'html/pages/auctions.html';
       }
 
       return user;

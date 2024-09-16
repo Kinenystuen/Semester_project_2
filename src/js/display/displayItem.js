@@ -265,7 +265,7 @@ export async function displayListingItem(url) {
         'text-decoration-none',
         'pointer',
       );
-      sellerNameDiv.href = `/html/pages/profile.html?user=${listData.seller.name}`;
+      sellerNameDiv.href = `html/pages/profile.html?user=${listData.seller.name}`;
       sellerAvatarDiv.classList.add(
         'd-flex',
         'align-items-center',
@@ -507,7 +507,7 @@ export async function displayListingItem(url) {
             'pointer',
             'mb-1',
           );
-          LBName.href = `/html/pages/profile.html?user=${lastBid.bidder.name}`;
+          LBName.href = `html/pages/profile.html?user=${lastBid.bidder.name}`;
           LBDate.classList.add('text-muted');
           LBDate.innerText = formatDateDDMMYYHT(lastBid.created);
           LBAmount.classList.add('h4', 'text-end');
@@ -530,7 +530,7 @@ export async function displayListingItem(url) {
             'link-body-emphasis',
             'text-decoration-none',
           );
-          imgA.href = `/html/pages/profile.html?user=${lastBid.bidder.name}`;
+          imgA.href = `html/pages/profile.html?user=${lastBid.bidder.name}`;
           img.classList.add('rounded-circle', 'me-2', 'object-fit-cover');
           img.setAttribute('width', '120');
           img.setAttribute('height', '120');
@@ -600,7 +600,7 @@ export async function displayListingItem(url) {
 
             const bidContent = `
               <div>
-                <a class="link-body-emhasis text-black text-decoration-none" title="Go to ${bid.bidder.name} profile" href="/html/pages/profile.html?user=${bid.bidder.name}">${bid.bidder.name}</a>
+                <a class="link-body-emhasis text-black text-decoration-none" title="Go to ${bid.bidder.name} profile" href="html/pages/profile.html?user=${bid.bidder.name}">${bid.bidder.name}</a>
                 <p class="text-muted mb-0">${formatDateDDMMYYHT(bid.created)}</p>
               </div>
               <div><p class="text-end">${bid.amount} credits</p></div>

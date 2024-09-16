@@ -76,7 +76,7 @@ export async function displayProfileListings(url) {
         'm-0',
       );
       card.id = 'listingCard';
-      card.href = `/html/pages/listingitem.html?id=${list.id}`;
+      card.href = `html/pages/listingitem.html?id=${list.id}`;
 
       const imageWrapper = document.createElement('div');
       const image = document.createElement('img');
