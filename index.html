@@ -25,7 +25,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
   </head>
 
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <header
       class="navbar navbar-expand-md d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom mx-2"
     >
@@ -48,9 +48,8 @@
       >
         <!-- Sign in button -->
         <a
-          class="mt-2 mt-md-0 ms-3 align-content-center"
+          class="mt-2 mt-md-0 ms-3 align-content-center eventSignInBtn"
           id="userBtn"
-          href="/html/auth/login.html"
           data-bs-toggle="tooltip"
           data-bs-title="Sign in"
           data-visible="true"
@@ -60,7 +59,7 @@
         </a>
         <!-- Dropdown menu when user is logged in -->
         <div
-          class="dropdown ms-3"
+          class="dropdown mx-3"
           id="userDropdownContainer"
           data-visible="false"
           style="display: none"
@@ -81,7 +80,7 @@
               class="rounded-circle me-2 object-fit-cover"
             />
           </a>
-          <ul class="dropdown-menu text-small shadow">
+          <ul class="dropdown-menu dropdown-menu-end text-small shadow">
             <li>
               <a class="dropdown-item" href="/html/pages/profile.html"
                 >Profile</a
@@ -120,14 +119,11 @@
               >Auctions</a
             >
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 link-body-emphasis text-uppercase"
-              >Buy</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 link-body-emphasis text-uppercase"
-              >Sell</a
+          <li class="nav-item d-none" id="profileLink">
+            <a
+              href="/html/pages/profiles.html"
+              class="nav-link px-2 link-body-emphasis text-uppercase"
+              >Profiles</a
             >
           </li>
         </ul>
@@ -137,15 +133,22 @@
     <main>
       <section class="hero-section my-5">
         <div class="hero-overlay">
-          <div class="hero-content m-md-5">
+          <div class="container hero-content">
             <h1 class="display-4">AuctionHub</h1>
             <p class="lead">The destination for auctions online</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-start">
+              <a
+                href="/html/pages/auctions.html"
+                class="btn text-white btn-primary"
+                >Go to auction page</a
+              >
+            </div>
           </div>
         </div>
       </section>
       <!-- Information about AuctionHub site -->
       <section>
-        <div class="container col-xxl-8 content_wrap py-5">
+        <div class="container col-xxl-8 py-5">
           <div class="row flex-lg-row-reverse align-items-center py-5">
             <div class="col-10 col-sm-8 col-lg-6">
               <img
@@ -172,7 +175,6 @@
                 class="d-grid gap-2 d-md-flex justify-content-md-start"
               >
                 <a
-                  href="/html/auth/signup.html"
                   class="btn btn-outline-primary custom-btn-outline-primary pointer"
                   >Register here</a
                 >
@@ -196,8 +198,8 @@
           <div class="d-grid gap-2 d-md-flex justify-content-md-center">
             <a
               href="/html/pages/auctions.html"
-              class="btn btn-outline-primary custom-btn-outline-primary"
-              >Go to listings</a
+              class="btn text-light btn-primary"
+              >See all listings</a
             >
           </div>
         </div>
@@ -247,7 +249,7 @@
         </div>
       </div>
     </main>
-    <footer class="py-3 pt-5">
+    <footer class="py-3 pt-5 mt-auto">
       <ul class="nav justify-content-center pb-2">
         <li class="nav-item">
           <a href="#" class="nav-link px-2 text-light">About</a>
