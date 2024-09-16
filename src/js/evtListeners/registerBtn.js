@@ -14,6 +14,7 @@ export async function registerBtn() {
         );
         myModal.show();
       } else {
+        localStorage.setItem('lastVisitedPage', window.location.href);
         window.location.href = '/html/auth/signup.html';
       }
     });
@@ -24,6 +25,7 @@ export async function registerBtn() {
   if (logoutAndRegisterBtn) {
     logoutAndRegisterBtn.addEventListener('click', function () {
       handlers.setLogOut();
+      localStorage.setItem('lastVisitedPage', window.location.href);
       window.location.href = '/html/auth/signup.html';
     });
   }
