@@ -318,7 +318,6 @@ export async function displayListingItem(url) {
       sellerName.classList.add('my-1');
       sellerName.innerText = `Uploaded by - ${listData.seller.name}`;
 
-      console.log(listData);
       sellerAvatarDiv.appendChild(sellerAvatar);
       sellerNameDiv.appendChild(sellerAvatarDiv);
       sellerNameDiv.appendChild(sellerName);
