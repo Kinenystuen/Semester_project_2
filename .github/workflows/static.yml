@@ -48,8 +48,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: |
-            ./index.html  # index.html
-            ./dist/css    #  CSS files
+            ./index.html    # Ensure this file exists
+            ./dist          # Upload entire dist directory
 
       - name: Deploy to GitHub Pages
         id: deployment
