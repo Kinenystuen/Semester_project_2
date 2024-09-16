@@ -19,6 +19,17 @@
     "dev": "npm-run-all --parallel watch vite",
     "vite-build": "vite build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kinenystuen/Semester_project_2"
+  },
+  "keywords": [
+    "noroff",
+    "fed",
+    "sp2",
+    "js",
+    "bootstrap"
+  ],
   "author": "Kine Odden Nystuen",
   "license": "ISC",
   "devDependencies": {
