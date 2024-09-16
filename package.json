@@ -8,7 +8,7 @@
     "vite": "^5.4.3"
   },
   "scripts": {
-    "build": "sass src/scss:dist/css && npm run copy-html",
+    "build": "sass src/scss:dist/css",
     "watch": "sass --watch src/scss:dist/css",
     "start": "live-server",
     "format": "prettier -w src/**/*.js",
@@ -16,9 +16,7 @@
     "lint-fix": "eslint src/**/*.js --cache --fix",
     "prepare": "husky install",
     "vite": "vite",
-    "dev": "npm-run-all --parallel watch vite",
-    "vite-build": "vite build",
-    "copy-html": "cp index.html dist/"
+    "dev": "npm-run-all --parallel build vite"
   },
   "repository": {
     "type": "git",
