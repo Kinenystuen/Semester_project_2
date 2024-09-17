@@ -13,6 +13,7 @@ if (currentUrl.includes('/Semester_project_2/html/pages/profile.html')) {
 export const getCreateListingURL = apiUrl;
 
 export async function createListing(url, listingData) {
+  const message = document.getElementById('errorMessageCreateListing');
   try {
     const btnCreateListing = document.getElementById('btnCreateListing');
     if (btnCreateListing) {
@@ -35,6 +36,9 @@ export async function createListing(url, listingData) {
       window.location.reload();
       return listing;
     } else {
+      const errorResponse = await response.json();
+      const errorMessage = errorResponse.errors[0].message;
+      message.innerHTML = errorMessage;
       if (btnCreateListing) {
         btnCreateListing.innerHTML = 'Create listing';
         btnCreateListing.removeChild(loaderW);
