@@ -46,7 +46,6 @@ export async function makeListings(data, listData) {
       'd-flex',
       'h-100',
       'flex-column',
-      // 'slider-item-2',
       'link-body-emphasis',
       'link-underline-opacity-0',
       'pointer',
