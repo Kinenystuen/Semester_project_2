@@ -5,7 +5,7 @@ const currentUrl = window.location.href;
 
 let apiListUrl = `${constants.apiHostUrl}${constants.apiAction}`;
 // Change the url to only have active listings in data
-if (currentUrl.includes('index.html')) {
+if (currentUrl.includes('/Semester_project_2/')) {
   apiListUrl += params;
 }
 

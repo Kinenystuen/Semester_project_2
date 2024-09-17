@@ -6,14 +6,14 @@ export function eventSignInUpBtn() {
     btn.addEventListener('click', function (event) {
       event.preventDefault();
       localStorage.setItem('lastVisitedPage', window.location.href);
-      window.location.href = '/html/auth/login.html';
+      window.location.href = 'html/auth/login.html';
     });
   });
   eventSignUpBtn.forEach((btn) => {
     btn.addEventListener('click', function (event) {
       event.preventDefault();
       localStorage.setItem('lastVisitedPage', window.location.href);
-      window.location.href = '/html/auth/signup.html';
+      window.location.href = 'html/auth/signup.html';
     });
   });
 }

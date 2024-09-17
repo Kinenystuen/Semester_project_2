@@ -54,10 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
   tooltips();
 });
 
-if (path === '/' || path === '' || path === '/index.html') {
+if (
+  path === '/Semester_project_2/' ||
+  path === '/Semester_project_2/index.html'
+) {
   display.displaySlider(getListsURL);
   evtListeners.registerBtn();
 }
+
 if (currentUrl.includes('pages/auctions.html')) {
   display.displayListings(getListsURL);
   evtListeners.searchListings();
