@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // If the current page is not an /auth page, toggle login visibility
   if (
-    !currentUrl.includes('/auth/login') &&
-    !currentUrl.includes('/auth/signup')
+    !currentUrl.includes('/Semester_project_2/html//auth/login') &&
+    !currentUrl.includes('/Semester_project_2/html//auth/signup')
   ) {
     display.toggleLoginVisibility(loggedIn);
   }
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const profileLink = document.getElementById('profileLink');
     profileLink.classList.remove('d-none');
 
-    if (currentUrl.includes('pages/profile.html')) {
+    if (currentUrl.includes('/Semester_project_2/html/pages/profile.html')) {
       const profileLoggedOutContainer = document.getElementById(
         'profileLoggedOutContainer',
       );
@@ -38,13 +38,13 @@ document.addEventListener('DOMContentLoaded', function () {
       display.displayProfile(fetch.getProfileURL);
       displayProfileListings(fetch.getProfileListingsUrl);
     }
-    if (currentUrl.includes('pages/profiles.html')) {
+    if (currentUrl.includes('/Semester_project_2/html/pages/profiles.html')) {
       display.displayProfiles(fetch.getProfilesURL);
       evtListeners.searchProfiles();
       evtListeners.setupPagination('profiles');
     }
   } else {
-    if (currentUrl.includes('pages/profile.html')) {
+    if (currentUrl.includes('/Semester_project_2/html/pages/profile.html')) {
       const profileContainerArea = document.getElementById(
         'profileContainerArea',
       );
@@ -62,14 +62,14 @@ if (
   evtListeners.registerBtn();
 }
 
-if (currentUrl.includes('pages/auctions.html')) {
+if (currentUrl.includes('/Semester_project_2/html/pages/auctions.html')) {
   display.displayListings(getListsURL);
   evtListeners.searchListings();
   fetch.fetchAndPopulateTags(getListsURL);
   evtListeners.sortListings();
   evtListeners.setupPagination('listings');
 }
-if (currentUrl.includes('pages/listingitem.html')) {
+if (currentUrl.includes('/Semester_project_2/html/pages/listingitem.html')) {
   display.displayListingItem(selUrl);
 }
 
