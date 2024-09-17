@@ -40,7 +40,7 @@ export async function displaySlider(url) {
         imageWrapper.classList.add('image-wrapper');
         descriptionOverlay.classList.add('description-overlay');
 
-        sliderItem.href = `/html/pages/listingitem.html?id=${list.id}`;
+        sliderItem.href = `html/pages/listingitem.html?id=${list.id}`;
         if (list.media[0]) {
           image.src = list.media[0].url;
           image.alt = list.media[0].alt;

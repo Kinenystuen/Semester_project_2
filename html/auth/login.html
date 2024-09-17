@@ -1,97 +1,67 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AuctionHub - Sign in</title>
-    <link rel="stylesheet" href="/dist/css/styles.css" />
-    <script type="module" src="/src/js/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script
-      src="https://kit.fontawesome.com/c4698ad2a1.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <meta name="author" content="Kine Odden Nystuen" />
-    <meta name="Keywords" content="Login, sign in, AuctionHub, auction site" />
-    <meta name="description" content="Sign in page for AuctionHub site" />
-    <link rel="icon" href="/src/images/logo_sp2_5.png" type="image/x-icon" />
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
-  </head>
 
-  <body
-    class="loginBody d-flex align-items-center justify-content-center vh-100"
-    id="bodyOverlay"
-  >
-    <div id="loginContainer" class="container col-lg-5 col-sm-7 col-md-5 mx-5">
-      <button class="close-btn" onclick="window.history.back()">
-        <i class="fas fa-times"></i>
-      </button>
-      <h1 class="h4 px-4 mt-3">Sign in</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuctionHub - Sign in</title>
+  <link rel="stylesheet" href="/dist/css/styles.css" />
+  <script type="module" src="/src/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <meta name="author" content="Kine Odden Nystuen" />
+  <meta name="Keywords" content="Login, sign in, AuctionHub, auction site" />
+  <meta name="description" content="Sign in page for AuctionHub site" />
+  <link rel="icon" href="/src/images/logo_sp2_5.png" type="image/x-icon" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+  <base href="/Semester_project_2/">
+</head>
 
-      <form
-        id="loginForm"
-        action="/auth/login"
-        method="post"
-        class="p-4 rounded bg-white w-100 needs-validation"
-        novalidate
-      >
-        <!-- Email-->
-        <div class="mb-3">
-          <div class="input-group has-validation">
-            <span class="input-group-text">
-              <i class="fa-solid fa-at" style="color: #34435e"></i>
-            </span>
-            <input
-              type="email"
-              id="inputEmail"
-              name="email"
-              class="form-control"
-              placeholder="E-mail"
-              aria-label="E-mail"
-              required
-              pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-            />
-            <div class="invalid-feedback">
-              Please provide a valid email address.
-            </div>
+<body class="loginBody d-flex align-items-center justify-content-center vh-100" id="bodyOverlay">
+  <div id="loginContainer" class="container col-lg-5 col-sm-7 col-md-5 mx-5">
+    <button class="close-btn" onclick="window.history.back()">
+      <i class="fas fa-times"></i>
+    </button>
+    <h1 class="h4 px-4 mt-3">Sign in</h1>
+
+    <form id="loginForm" action="/auth/login" method="post" class="p-4 rounded bg-white w-100 needs-validation"
+      novalidate>
+      <!-- Email-->
+      <div class="mb-3">
+        <div class="input-group has-validation">
+          <span class="input-group-text">
+            <i class="fa-solid fa-at" style="color: #34435e"></i>
+          </span>
+          <input type="email" id="inputEmail" name="email" class="form-control" placeholder="E-mail" aria-label="E-mail"
+            required pattern="^[\w\-.]+@(stud\.)?noroff\.no$" />
+          <div class="invalid-feedback">
+            Please provide a valid email address.
           </div>
         </div>
-        <!-- Password-->
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">
-            <i class="fa-solid fa-lock" style="color: #34435e"></i>
-          </span>
-          <input
-            type="password"
-            id="inputPassword"
-            name="password"
-            class="form-control"
-            minlength="8"
-            placeholder="Your password"
-            aria-label="Password"
-            required
-          />
-        </div>
-        <div class="w-100">
-          <div
-            id="regErrorMessage"
-            class="badge bg-warning text-bg-warning mb-3"
-          ></div>
-        </div>
-        <button id="loginBtn" type="submit" class="btn btn-success">
-          Sign in
-        </button>
-        <a class="dropdown-item pt-3" href="/html/auth/signup.html"
-          >New around here?<strong>Register here</strong></a
-        >
-      </form>
-    </div>
-  </body>
+      </div>
+      <!-- Password-->
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fa-solid fa-lock" style="color: #34435e"></i>
+        </span>
+        <input type="password" id="inputPassword" name="password" class="form-control" minlength="8"
+          placeholder="Your password" aria-label="Password" required />
+      </div>
+      <div class="w-100">
+        <div id="regErrorMessage" class="badge bg-warning text-bg-warning mb-3"></div>
+      </div>
+      <button id="loginBtn" type="submit" class="btn btn-success">
+        Sign in
+      </button>
+      <a class="dropdown-item pt-3" href="html/auth/signup.html">New around here?<strong>Register here</strong></a>
+    </form>
+  </div>
+</body>
+
 </html>

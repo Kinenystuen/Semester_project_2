@@ -60,7 +60,7 @@ export function makeProfileCards(data) {
       'profileCard',
     );
     profileCard.id = `profileCard-${profile.name}`;
-    profileCard.href = `/html/pages/profile.html?user=${profile.name}`;
+    profileCard.href = `html/pages/profile.html?user=${profile.name}`;
 
     profileImgDiv.classList.add(
       'd-flex',

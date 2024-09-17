@@ -18,7 +18,7 @@ export async function displayProfile(url) {
       display.displayProfileListings(profileData);
       if (loggedIn) {
         const profileLink = document.querySelector('.profileLinkA');
-        profileLink.href = '/html/pages/profiles.html';
+        profileLink.href = 'html/pages/profiles.html';
         profileLink.classList.remove('disabled');
       }
 

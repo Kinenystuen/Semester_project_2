@@ -1,273 +1,181 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AuctionHub</title>
-    <link rel="stylesheet" href="dist/css/styles.css" />
-    <script type="module" src="/src/js/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script
-      src="https://kit.fontawesome.com/c4698ad2a1.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <meta name="author" content="Kine Odden Nystuen" />
-    <meta name="Keywords" content="" />
-    <meta name="description" content="" />
-    <link rel="icon" href="/src/images/logo_sp2_5.png" type="image/x-icon" />
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
-  </head>
 
-  <body class="d-flex flex-column min-vh-100">
-    <header
-      class="navbar navbar-expand-md d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom mx-2"
-    >
-      <div class="col-md-3 mb-2 mb-md-0">
-        <a
-          href="/"
-          class="d-inline-flex link-body-emphasis text-decoration-none col-md-4 d-flex"
-        >
-          <img
-            class="logo_img me-2"
-            src="/src/images/logo_sp2_5.png"
-            alt="Logo AuctionHub"
-          />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuctionHub</title>
+  <link rel="stylesheet" href="dist/css/styles.css" />
+  <script type="module" src="/src/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <meta name="author" content="Kine Odden Nystuen" />
+  <meta name="Keywords" content="" />
+  <meta name="description" content="" />
+  <link rel="icon" href="/src/images/logo_sp2_5.png" type="image/x-icon" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+  <base href="/Semester_project_2/">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <header
+    class="navbar navbar-expand-md d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom mx-2">
+    <div class="col-md-3 mb-2 mb-md-0">
+      <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none col-md-4 d-flex">
+        <img class="logo_img me-2" src="/src/images/logo_sp2_5.png" alt="Logo AuctionHub" />
+      </a>
+    </div>
+
+    <!-- Container to position the user icon and dropdown menu -->
+    <div class="d-flex align-items-center justify-content-end ms-auto order-md-last col-md-3">
+      <!-- Sign in button -->
+      <a class="mt-2 mt-md-0 ms-3 align-content-center eventSignInBtn" id="userBtn" data-bs-toggle="tooltip"
+        data-bs-title="Sign in" data-visible="true" aria-describedby="tooltip457496">
+        <i class="fa-solid fa-user fa-xl" aria-hidden="true"></i>
+      </a>
+      <!-- Dropdown menu when user is logged in -->
+      <div class="dropdown mx-3" id="userDropdownContainer" data-visible="false" style="display: none">
+        <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <strong class="mx-2" id="username">User</strong>
+          <img id="userImg" src="" alt="" width="32" height="32" class="rounded-circle me-2 object-fit-cover" />
         </a>
-      </div>
-
-      <!-- Container to position the user icon and dropdown menu -->
-      <div
-        class="d-flex align-items-center justify-content-end ms-auto order-md-last col-md-3"
-      >
-        <!-- Sign in button -->
-        <a
-          class="mt-2 mt-md-0 ms-3 align-content-center eventSignInBtn"
-          id="userBtn"
-          data-bs-toggle="tooltip"
-          data-bs-title="Sign in"
-          data-visible="true"
-          aria-describedby="tooltip457496"
-        >
-          <i class="fa-solid fa-user fa-xl" aria-hidden="true"></i>
-        </a>
-        <!-- Dropdown menu when user is logged in -->
-        <div
-          class="dropdown mx-3"
-          id="userDropdownContainer"
-          data-visible="false"
-          style="display: none"
-        >
-          <a
-            href="#"
-            class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <strong class="mx-2" id="username">User</strong>
-            <img
-              id="userImg"
-              src=""
-              alt=""
-              width="32"
-              height="32"
-              class="rounded-circle me-2 object-fit-cover"
-            />
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end text-small shadow">
-            <li>
-              <a class="dropdown-item" href="/html/pages/profile.html"
-                >Profile</a
-              >
-            </li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li>
-              <a class="dropdown-item logOutBtn" id="logOutBtn" title="Sign out"
-                >Sign out</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mb-lg-0 m-auto">
-          <li class="nav-item">
-            <a
-              href="/html/pages/auctions.html"
-              class="nav-link px-2 link-body-emphasis text-uppercase"
-              >Auctions</a
-            >
+        <ul class="dropdown-menu dropdown-menu-end text-small shadow">
+          <li>
+            <a class="dropdown-item" href="html/pages/profile.html">Profile</a>
           </li>
-          <li class="nav-item d-none" id="profileLink">
-            <a
-              href="/html/pages/profiles.html"
-              class="nav-link px-2 link-body-emphasis text-uppercase"
-              >Profiles</a
-            >
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <li>
+            <a class="dropdown-item logOutBtn" id="logOutBtn" title="Sign out">Sign out</a>
           </li>
         </ul>
       </div>
-    </header>
+    </div>
 
-    <main>
-      <section class="hero-section my-5">
-        <div class="hero-overlay">
-          <div class="container hero-content">
-            <h1 class="display-4">AuctionHub</h1>
-            <p class="lead">The destination for auctions online</p>
-            <div class="d-grid gap-2 d-md-flex justify-content-start">
-              <a
-                href="/html/pages/auctions.html"
-                class="btn text-white btn-primary"
-                >Go to auction page</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Information about AuctionHub site -->
-      <section>
-        <div class="container col-xxl-8 py-5">
-          <div class="row flex-lg-row-reverse align-items-center py-5">
-            <div class="col-10 col-sm-8 col-lg-6">
-              <img
-                src="https://images.unsplash.com/photo-1487611459768-bd414656ea10?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                class="d-block mx-lg-auto img-fluid"
-                alt="Desk with pc and work elements"
-                width="700"
-                height="500"
-                loading="lazy"
-              />
-            </div>
-            <div class="col-lg-6">
-              <h2 class="h5 fw-bold text-body-emphasis lh-1 my-3">
-                Find exciting listings
-              </h2>
-              <p>
-                Auction Hub is the perfect platform for online auctions. Here
-                you can explore a diverse list of items, list your own items for
-                others to bid on, and join the exciting bidding experience.
-              </p>
-              <p>Join now and get 1000 credits to use on biddings.</p>
-              <div
-                id="regUserBtnHP"
-                class="d-grid gap-2 d-md-flex justify-content-md-start"
-              >
-                <a
-                  class="btn btn-outline-primary custom-btn-outline-primary pointer"
-                  >Register here</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Active listings -->
-      <section class="bg-cool-gray">
-        <div class="container py-5">
-          <h2 class="h5 fw-bold text-body-emphasis lh-1 mb-3">
-            Active listings
-          </h2>
-          <div id="activeListings">
-            <!-- Slider-->
-            <div class="loaderArea">
-              <div class="loader"></div>
-            </div>
-          </div>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <a
-              href="/html/pages/auctions.html"
-              class="btn text-light btn-primary"
-              >See all listings</a
-            >
-          </div>
-        </div>
-      </section>
-      <!-- Modal already logged in -->
-      <div
-        class="modal fade justify-content-center align-content-center"
-        id="alreadyLoggedInModal"
-        tabindex="-1"
-        aria-labelledby="alreadyLoggedInModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="alreadyLoggedInModalLabel">
-                Already Logged In
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              You are already logged in. Would you like to sign out and register
-              a new account?
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                id="logoutAndRegisterBtn"
-              >
-                Sign Out and Register
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer class="py-3 pt-5 mt-auto">
-      <ul class="nav justify-content-center pb-2">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mb-lg-0 m-auto">
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-light">About</a>
+          <a href="html/pages/auctions.html" class="nav-link px-2 link-body-emphasis text-uppercase">Auctions</a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-light">Contact us</a>
+        <li class="nav-item d-none" id="profileLink">
+          <a href="html/pages/profiles.html" class="nav-link px-2 link-body-emphasis text-uppercase">Profiles</a>
         </li>
       </ul>
-      <div class="d-flex justify-content-center align-content-center my-2">
-        <a href="#" class="">
-          <img
-            class="logo_img me-2"
-            src="/src/images/logo_sp2_4.png"
-            alt="Logo AuctionHub"
-          />
-        </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section my-5">
+      <div class="hero-overlay">
+        <div class="container hero-content">
+          <h1 class="display-4">AuctionHub</h1>
+          <p class="lead">The destination for auctions online</p>
+          <div class="d-grid gap-2 d-md-flex justify-content-start">
+            <a href="html/pages/auctions.html" class="btn text-white btn-primary">Go to auction page</a>
+          </div>
+        </div>
       </div>
-      <p class="text-center text-light">© 2024 AuctionHub</p>
-    </footer>
-  </body>
+    </section>
+    <!-- Information about AuctionHub site -->
+    <section>
+      <div class="container col-xxl-8 py-5">
+        <div class="row flex-lg-row-reverse align-items-center py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img
+              src="https://images.unsplash.com/photo-1487611459768-bd414656ea10?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block mx-lg-auto img-fluid" alt="Desk with pc and work elements" width="700" height="500"
+              loading="lazy" />
+          </div>
+          <div class="col-lg-6">
+            <h2 class="h5 fw-bold text-body-emphasis lh-1 my-3">
+              Find exciting listings
+            </h2>
+            <p>
+              Auction Hub is the perfect platform for online auctions. Here
+              you can explore a diverse list of items, list your own items for
+              others to bid on, and join the exciting bidding experience.
+            </p>
+            <p>Join now and get 1000 credits to use on biddings.</p>
+            <div id="regUserBtnHP" class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <a class="btn btn-outline-primary custom-btn-outline-primary pointer">Register here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Active listings -->
+    <section class="bg-cool-gray">
+      <div class="container py-5">
+        <h2 class="h5 fw-bold text-body-emphasis lh-1 mb-3">
+          Active listings
+        </h2>
+        <div id="activeListings">
+          <!-- Slider-->
+          <div class="loaderArea">
+            <div class="loader"></div>
+          </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+          <a href="html/pages/auctions.html" class="btn text-light btn-primary">See all listings</a>
+        </div>
+      </div>
+    </section>
+    <!-- Modal already logged in -->
+    <div class="modal fade justify-content-center align-content-center" id="alreadyLoggedInModal" tabindex="-1"
+      aria-labelledby="alreadyLoggedInModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="alreadyLoggedInModalLabel">
+              Already Logged In
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            You are already logged in. Would you like to sign out and register
+            a new account?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="logoutAndRegisterBtn">
+              Sign Out and Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="py-3 pt-5 mt-auto">
+    <ul class="nav justify-content-center pb-2">
+      <li class="nav-item">
+        <a href="#" class="nav-link px-2 text-light">About</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link px-2 text-light">Contact us</a>
+      </li>
+    </ul>
+    <div class="d-flex justify-content-center align-content-center my-2">
+      <a href="#" class="">
+        <img class="logo_img me-2" src="/src/images/logo_sp2_4.png" alt="Logo AuctionHub" />
+      </a>
+    </div>
+    <p class="text-center text-light">© 2024 AuctionHub</p>
+  </footer>
+</body>
+
 </html>
