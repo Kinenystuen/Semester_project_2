@@ -20,7 +20,7 @@ if (loggedIn === true) {
   apiOwnUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${profile.name}?${params}`;
 }
 const currentUrl = window.location.href;
-if (currentUrl.includes('pages/profile.html')) {
+if (currentUrl.includes('/Semester_project_2/html/pages/profile.html')) {
   if (idProfile) {
     apiUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${idProfile}?${params}`;
     apiProfileListingsUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${idProfile}${constants.apiListings}?${params}`;

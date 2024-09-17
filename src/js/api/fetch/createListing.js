@@ -7,7 +7,7 @@ const method = 'post';
 
 let apiUrl;
 const currentUrl = window.location.href;
-if (currentUrl.includes('pages/profile.html')) {
+if (currentUrl.includes('/Semester_project_2/html/pages/profile.html')) {
   apiUrl = `${constants.apiHostUrl}${constants.apiAction}`;
 }
 export const getCreateListingURL = apiUrl;
