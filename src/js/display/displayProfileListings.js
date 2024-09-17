@@ -55,7 +55,7 @@ export async function displayProfileListings(url) {
     listData.forEach((list) => {
       const col = document.createElement('div');
       col.classList.add(
-        'col',
+        'col-6',
         'col-sm-6',
         'col-md-4',
         'col-lg-3',
@@ -68,7 +68,6 @@ export async function displayProfileListings(url) {
         'd-flex',
         'h-100',
         'flex-column',
-        'slider-item-2',
         'link-body-emphasis',
         'link-underline-opacity-0',
         'pointer',
