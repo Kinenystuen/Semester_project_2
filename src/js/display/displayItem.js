@@ -4,6 +4,7 @@ import { errorMessage } from '../utilitis/errorMessage.js';
 import { formatDateDDMMYYHT } from '../utilitis/formatDate.js';
 import * as status from './../api/auth/index.js';
 import * as display from './../display/index.js';
+import * as fetch from './../api/fetch/index.js';
 
 let currentIndex = 0;
 let listData = [];
@@ -448,7 +449,7 @@ export async function displayListingItem(url) {
 
           confirmDeleteBtn.addEventListener('click', function () {
             const listingData = { id: listData.id };
-            fetch.deleteListing(listingData);
+            fetch.deleteListing(listingData, listData);
             deleteModal.hide();
           });
         });

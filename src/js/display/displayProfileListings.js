@@ -164,7 +164,7 @@ export async function displayProfileListings(url) {
 
           confirmDeleteBtn.addEventListener('click', function () {
             const listingData = { id: list.id };
-            fetch.deleteListing(listingData);
+            fetch.deleteListing(listingData, list);
             deleteModal.hide();
           });
         });
