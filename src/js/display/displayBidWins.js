@@ -68,7 +68,7 @@ export async function displayProfileListings(listData) {
         const imageWrapper = document.createElement('div');
         const image = document.createElement('img');
         const cardBody = document.createElement('div');
-        const titleList = document.createElement('h5');
+        const titleList = document.createElement('h2');
         const descriptionText = document.createElement('p');
         const badgeContainer = document.createElement('div');
 
@@ -108,7 +108,7 @@ export async function displayProfileListings(listData) {
         }
 
         titleList.innerText = list.title;
-        titleList.classList.add('card-title', 'text-start', 'h-6');
+        titleList.classList.add('card-title', 'text-start', 'h5');
 
         // Listing item description
         descriptionText.innerText = list.description

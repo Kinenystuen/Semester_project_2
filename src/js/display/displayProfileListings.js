@@ -80,10 +80,11 @@ export async function displayProfileListings(url) {
       const imageWrapper = document.createElement('div');
       const image = document.createElement('img');
       const cardBody = document.createElement('div');
-      const titleList = document.createElement('h5');
+      const titleList = document.createElement('h2');
       const descriptionText = document.createElement('p');
       const badgeContainer = document.createElement('div');
 
+      titleList.classList.add('h5');
       // Edit and delete listing dropdown menu
       const loggedIn = status.isLoggedIn();
       const ddMenuBtn = document.createElement('div');

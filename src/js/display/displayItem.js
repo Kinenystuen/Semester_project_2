@@ -314,7 +314,11 @@ export async function displayListingItem(url) {
       sellerAvatar.classList.add('rounded-circle', 'me-2', 'object-fit-cover');
       sellerAvatar.setAttribute('width', '32');
       sellerAvatar.setAttribute('height', '32');
-      sellerAvatar.alt = listData.seller.avatar.alt;
+      if (listData.seller.avatar && listData.seller.avatar.alt) {
+        sellerAvatar.alt = listData.seller.avatar.alt;
+      } else {
+        sellerAvatar.alt = 'User avatar';
+      }
       sellerAvatar.src = listData.seller.avatar.url;
       sellerName.classList.add('my-1');
       sellerName.innerText = `Uploaded by - ${listData.seller.name}`;
@@ -422,6 +426,7 @@ export async function displayListingItem(url) {
           'gap-2',
           'align-items-center',
         );
+        ddMenyLiUpdateA.id = 'ddMenyLiUpdateA';
         ddMenyLiUpdate.setAttribute('data-bs-toggle', 'modal');
         ddMenyLiUpdate.setAttribute('data-bs-target', `#updListingModal`);
 
@@ -484,7 +489,7 @@ export async function displayListingItem(url) {
           const bidsCardDiv = document.createElement('div');
           const leftareaDiv = document.createElement('div');
           const leftArea = document.createElement('div');
-          const cardTitle = document.createElement('h5');
+          const cardTitle = document.createElement('h3');
           const LBName = document.createElement('a');
           const LBDate = document.createElement('p');
           const rightArea = document.createElement('div');
@@ -498,6 +503,7 @@ export async function displayListingItem(url) {
             'align-items-center',
           );
           cardTitle.innerText = 'Last bid:';
+          cardTitle.classList.add('h5');
           LBName.innerText = lastBid.bidder.name;
           LBName.title = `Go to ${lastBid.bidder.name} profile`;
           LBName.classList.add(
@@ -536,6 +542,7 @@ export async function displayListingItem(url) {
           img.setAttribute('width', '120');
           img.setAttribute('height', '120');
           img.src = lastBid.bidder.avatar.url;
+          img.alt = lastBid.bidder.avatar.url;
           imgA.appendChild(img);
           leftImgArea.appendChild(imgA);
 
