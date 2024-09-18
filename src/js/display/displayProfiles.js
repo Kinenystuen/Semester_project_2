@@ -91,14 +91,16 @@ export function makeProfileCards(data) {
         'me-2',
         'text-dark',
       );
+
       let activeListingCount = 0;
-      // For each listing, find out how many active ones
+
+      // For each listing, find out how many are active
       profile.listings.forEach((listing) => {
-        activeListingCount += 1;
         const endsAt = new Date(listing.endsAt);
         const now = new Date();
 
         if (now < endsAt) {
+          activeListingCount += 1;
           profileListingsActiveBadge.classList.add(
             'badge',
             'bg-success',
@@ -109,12 +111,7 @@ export function makeProfileCards(data) {
           profileBadgeDiv.appendChild(profileListingsActiveBadge);
         }
       });
-      profileListingsActiveBadge.classList.add(
-        'badge',
-        'bg-success',
-        'me-2',
-        'text-dark',
-      );
+
       profileListingsBadge.innerText = `${profile.listings.length} listings`;
     }
 
