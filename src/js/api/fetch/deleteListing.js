@@ -28,7 +28,14 @@ export async function deleteListing(listingData, listData) {
       try {
         window.location.href = `html/pages/profile.html?user=${listData.seller.name}`;
       } catch {
-        window.location.href = `html/pages/auctions.html`;
+        const currentUrl = window.location.href;
+        if (
+          currentUrl.includes('/Semester_project_2/html/pages/profile.html')
+        ) {
+          window.location.reload();
+        } else {
+          window.location.href = `html/pages/auctions.html`;
+        }
       }
     } else {
       if (btnCreateListing) {
