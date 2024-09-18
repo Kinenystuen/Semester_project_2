@@ -278,3 +278,31 @@
   transform: scale(1.02);
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
+
+// sell page
+.imageSell-container {
+  position: relative;
+  width: 500px;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.customSell-img {
+  width: 100%;
+  object-fit: cover;
+  transform: rotate(10deg); /* Rotate image inside the box */
+}
+
+.gradientSell-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0)
+  );
+  pointer-events: none;
+}
