@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // If the current page is not an /auth page, toggle login visibility
   if (
-    !currentUrl.includes('/Semester_project_2/html//auth/login') &&
-    !currentUrl.includes('/Semester_project_2/html//auth/signup')
+    !currentUrl.includes('/Semester_project_2/html/auth/login') &&
+    !currentUrl.includes('/Semester_project_2/html/auth/signup')
   ) {
     display.toggleLoginVisibility(loggedIn);
   }
@@ -42,6 +42,9 @@ document.addEventListener('DOMContentLoaded', function () {
       display.displayProfiles(fetch.getProfilesURL);
       evtListeners.searchProfiles();
       evtListeners.setupPagination('profiles');
+    }
+    if (currentUrl.includes('/pages/sell.html')) {
+      display.displaySellPage(fetch.getProfileURL);
     }
   } else {
     if (currentUrl.includes('/Semester_project_2/html/pages/profile.html')) {
@@ -82,4 +85,7 @@ if (currentUrl.includes(`/auth/signup`) || path === `/html/auth/signup.html`) {
   handlers.setRegisterForm();
   evtListeners.initFormValidation('registerForm');
   evtListeners.historyBack('registerForm', 'bodyOverlay');
+}
+if (currentUrl.includes('/pages/sell.html')) {
+  evtListeners.registerBtn();
 }
