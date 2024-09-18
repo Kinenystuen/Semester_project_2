@@ -7,9 +7,21 @@ export async function displaySlider(url) {
     if (data) {
       const listData = data.data;
 
-      // Get the 8 latest active listings of the data
-      listData.sort((a, b) => new Date(b.date) - new Date(a.date));
-      const sliceData = listData.slice(0, 8);
+      // Filter active listings
+      const activeListingsData = listData
+        .filter((listing) => {
+          const now = new Date();
+          const endsAt = new Date(listing.endsAt);
+          return now < endsAt;
+        })
+        .sort((a, b) => {
+          const dateA = new Date(a.created); // or use listing.date, depending on your data
+          const dateB = new Date(b.created);
+          return dateB - dateA; // Sort by newest
+        });
+
+      // Get the 8 latest active listings
+      const sliceData = activeListingsData.slice(0, 8);
 
       const activeListings = document.getElementById('activeListings');
       clearHTML(activeListings);
