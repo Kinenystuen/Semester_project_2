@@ -35,7 +35,6 @@ export async function displayProfile(url) {
       } else {
         profileBio.innerText = `${profileData.name} has been busy chasing squirrels around the neighborhood trying to convince them to ghostwrite their bio. `;
       }
-      console.log(profileData);
       profileImg.src = profileData.avatar.url;
       profileImg.alt = `${profileData.name}'s avatar`;
       profileBanner.src = profileData.banner.url;
@@ -103,13 +102,19 @@ export async function displayProfile(url) {
           const updPostAvatarProfile = document.getElementById(
             'updPostAvatarProfile',
           );
+          const updPostBannerProfile = document.getElementById(
+            'updPostBannerProfile',
+          );
           updPostAvatarProfile.src = profileData.avatar.url;
+          updPostBannerProfile.src = profileData.banner.url;
           const usernameInput = document.getElementById('usernameInput');
           usernameInput.value = profileData.name;
           const updBio = document.getElementById('updBioInput');
           updBio.value = profileData.bio;
           const updateAvatar = document.getElementById('updAvatarUrlInput');
           updateAvatar.value = profileData.avatar.url;
+          const updateBanner = document.getElementById('updBannerUrlInput');
+          updateBanner.value = profileData.banner.url;
 
           handlers.setUpdateProfileForm();
         });
@@ -156,6 +161,7 @@ export async function displayProfile(url) {
     }
 
     evtListeners.updImgLive('updAvatarUrlInput', 'updPostAvatarProfile');
+    evtListeners.updImgLive('updBannerUrlInput', 'updPostBannerProfile');
   } catch (error) {
     console.error('Error fetching and displaying lists:', error);
     const profileDisplay = document.getElementById('profileDisplay');
