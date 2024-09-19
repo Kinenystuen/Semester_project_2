@@ -17,19 +17,21 @@ const loggedIn = isLoggedIn();
 const profileData = localStorage.getItem(`profile`);
 const profile = JSON.parse(profileData);
 const currentUrl = window.location.href;
+const bidList = '_seller=true&_bids=true';
+
 if (loggedIn === true) {
-  apiOwnUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${profile.name}?${params}`;
+  apiOwnUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${profile.name}?${params}&${bidList}`;
   if (currentUrl.includes('/Semester_project_2/html/pages/sell.html')) {
-    apiUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${profile.name}?${params}`;
+    apiUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${profile.name}?${params}&${bidList}`;
   }
 }
 if (currentUrl.includes('/Semester_project_2/html/pages/profile.html')) {
   if (idProfile) {
-    apiUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${idProfile}?${params}`;
-    apiProfileListingsUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${idProfile}${constants.apiListings}?${params}`;
+    apiUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${idProfile}?${params}&${bidList}`;
+    apiProfileListingsUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${idProfile}${constants.apiListings}?${params}&${bidList}`;
   } else {
-    apiUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${profile.name}?${params}`;
-    apiProfileListingsUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${profile.name}${constants.apiListings}?${params}`;
+    apiUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${profile.name}?${bidList}&${params}`;
+    apiProfileListingsUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${profile.name}${constants.apiListings}?${params}&${bidList}`;
   }
 }
 

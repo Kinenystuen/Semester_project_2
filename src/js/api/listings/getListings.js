@@ -1,9 +1,10 @@
 import * as constants from '../constants.js';
 
-const params = '?_active=true';
+const params = '&_active=true';
+const bidList = '_seller=true&_bids=true';
 const path = window.location.pathname;
 
-let apiListUrl = `${constants.apiHostUrl}${constants.apiAction}`;
+let apiListUrl = `${constants.apiHostUrl}${constants.apiAction}?${bidList}`;
 if (
   path === '/Semester_project_2/' ||
   path === '/Semester_project_2/index.html'
