@@ -5,6 +5,7 @@ import * as constants from './../api/constants.js';
 
 const listings = document.getElementById('listings');
 const pageButtons = document.getElementById('pageButtons');
+const bidList = '_seller=true&_bids=true';
 // Sort listings by date
 export function sortListingsByDate(listings, order = 'newest') {
   return listings.sort((a, b) => {
@@ -84,7 +85,7 @@ export async function sortListings() {
     .getElementById('activeListings')
     .addEventListener('click', function () {
       const apiListUrl = `${constants.apiHostUrl}${constants.apiAction}`;
-      const paramsTrue = '?_active=true';
+      const paramsTrue = `?_active=true&${bidList}`;
       const newUrl = `${apiListUrl}${paramsTrue}`;
       sortedType.innerText = 'Active listings';
       clearHTML(pageButtons);
