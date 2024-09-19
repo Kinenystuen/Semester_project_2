@@ -6,6 +6,7 @@ import { getProfilesURL } from '../api/fetch/apiProfiles.js';
 
 export async function searchListings() {
   const activeListings = document.getElementById('listings');
+  const bidList = '_seller=true&_bids=true';
 
   // Search Functionality
   const searchInput = document.querySelector('#search-input');
@@ -14,7 +15,7 @@ export async function searchListings() {
     searchInput.addEventListener('keyup', function () {
       const searchInputTrim = searchInput.value.trim();
       if (searchInputTrim.length > 0) {
-        const newUrl = `${constants.apiHostUrl}${constants.apiAction}/search?q=${encodeURIComponent(searchInputTrim)}`;
+        const newUrl = `${constants.apiHostUrl}${constants.apiAction}/search?q=${encodeURIComponent(searchInputTrim)}&${bidList}`;
         clearHTML(activeListings);
         display.displayListings(newUrl);
       } else {

@@ -92,7 +92,6 @@ export async function displayProfileListings(url) {
       if (lastBid !== null) {
         currentBid.innerText = `$${lastBid}`;
       }
-      currentBid.innerText = `$${lastBid}`;
       badgeContainer.appendChild(currentBid);
 
       titleList.classList.add('h5');
