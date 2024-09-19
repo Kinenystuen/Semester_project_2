@@ -38,7 +38,7 @@
     <div class="d-flex align-items-center justify-content-end ms-auto order-md-last col-md-3">
       <!-- Sign in button -->
       <a class="mt-2 mt-md-0 ms-3 align-content-center eventSignInBtn" id="userBtn" data-bs-toggle="tooltip"
-        data-bs-title="Sign in" data-visible="true" aria-describedby="tooltip457496">
+        data-bs-title="Sign in" data-visible="true">
         <i class="fa-solid fa-user fa-xl" aria-hidden="true"></i>
       </a>
       <!-- Dropdown menu when user is logged in -->
@@ -73,6 +73,10 @@
           <a href="/Semester_project_2/html/pages/auctions.html"
             class="nav-link px-2 link-body-emphasis text-uppercase">Auctions</a>
         </li>
+        <li class="nav-item"></li>
+        <a href="/Semester_project_2/html/pages/sell.html"
+          class="nav-link px-2 link-body-emphasis text-uppercase">Sell</a>
+        </li>
         <li class="nav-item d-none" id="profileLink">
           <a href="/Semester_project_2/html/pages/profiles.html"
             class="nav-link px-2 link-body-emphasis text-uppercase">Profiles</a>
@@ -105,7 +109,7 @@
       <div class="pt-1">
         <div class="d-flex justify-content-between align-content-center align-items-center flex-wrap">
           <div class="">
-            <h2 class="h2 fw-bold text-body-emphasis lh-1 m-0">Auctions</h2>
+            <h1 class="h2 fw-bold text-body-emphasis lh-1 m-0">Auctions</h1>
             <small id="listingNumber" class="card-text description-text lead text-muted"></small>
             <div class="d-flex justify-content-start align-items-center">
               <p id="visibleData" class="visibleData text-muted small m-0"></p>
@@ -127,7 +131,7 @@
               </button>
               <ul class="dropdown-menu overflow-auto vh-60" id="tagsDD">
                 <li>
-                  <a class="dropdown-item" href="#" id="clearTags">Clear</a>
+                  <a class="dropdown-item" id="clearTags">Clear</a>
                 </li>
               </ul>
             </div>
@@ -141,22 +145,22 @@
               </button>
               <ul class="dropdown-menu overflow-auto" id="sort">
                 <li>
-                  <a class="dropdown-item" href="#" id="clearSort">Clear</a>
+                  <a class="dropdown-item" id="clearSort">Clear</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#" id="activeListings">Active listings</a>
+                  <a class="dropdown-item" id="activeListings">Active listings</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#" id="endingSoon">Ending soon</a>
+                  <a class="dropdown-item" id="endingSoon">Ending soon</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#" id="endedListings">Ended listings</a>
+                  <a class="dropdown-item" id="endedListings">Ended listings</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#" id="newListings">Descending by date</a>
+                  <a class="dropdown-item" id="newListings">Descending by date</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#" id="oldListings">Ascending by date</a>
+                  <a class="dropdown-item" id="oldListings">Ascending by date</a>
                 </li>
               </ul>
             </div>

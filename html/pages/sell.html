@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuctionHub - Sell</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script type="module" src="/src/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <meta name="author" content="Kine Odden Nystuen" />
+    <meta name="Keywords" content="Sell, auction, listing" />
+    <meta name="description" content="A auction site called AuctionHub. Page for uploading listing" />
+    <link rel="icon" href="/src/images/logo_sp2_5.png" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <base href="/Semester_project_2/">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header
+        class="navbar navbar-expand-md d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom mx-2">
+        <div class="col-md-3 mb-2 mb-md-0">
+            <a href="/index.html" class="d-inline-flex link-body-emphasis text-decoration-none col-md-4 d-flex">
+                <img class="logo_img me-2" src="/src/images/logo_sp2_5.png" alt="Logo AuctionHub" />
+            </a>
+        </div>
+
+        <!-- Container to position the user icon and dropdown menu -->
+        <div class="d-flex align-items-center justify-content-end ms-auto order-md-last col-md-3">
+            <!-- Sign in button -->
+            <a class="mt-2 mt-md-0 ms-3 align-content-center eventSignInBtn" id="userBtn" data-bs-toggle="tooltip"
+                data-bs-title="Sign in" data-visible="true">
+                <i class="fa-solid fa-user fa-xl" aria-hidden="true"></i>
+            </a>
+            <!-- Dropdown menu when user is logged in -->
+            <div class="dropdown mx-3" id="userDropdownContainer" data-visible="false" style="display: none">
+                <a class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <strong class="mx-2" id="username">User</strong>
+                    <img id="userImg" src="" alt="" width="32" height="32"
+                        class="rounded-circle me-2 object-fit-cover" />
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end text-small shadow">
+                    <li>
+                        <a class="dropdown-item" href="/Semester_project_2/html/pages/profile.html">Profile</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                        <a class="dropdown-item logOutBtn" id="logOutBtn" title="Sign out">Sign out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mb-lg-0 m-auto">
+                <li class="nav-item">
+                    <a href="/Semester_project_2/html/pages/auctions.html"
+                        class="nav-link px-2 link-body-emphasis text-uppercase">Auctions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Semester_project_2/html/pages/sell.html"
+                        class="nav-link px-2 link-body-emphasis text-uppercase active">Sell</a>
+                </li>
+                <li class="nav-item d-none" id="profileLink">
+                    <a href="/Semester_project_2/html/pages/profiles.html"
+                        class="nav-link px-2 link-body-emphasis text-uppercase">Profiles</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Information about AuctionHub site -->
+        <section class="container">
+            <div class=" col-xxl-8 py-5">
+                <div class="row flex-lg-row-reverse align-items-center py-5">
+                    <div class="col-10 col-sm-8 col-lg-6 overflow-hidden">
+                        <div class="imageSell-container d-flex justify-content-center align-items-center">
+                            <img src="/src/images/auctionPage2.png" class="img-fluid customSell-img"
+                                alt="AuctionHub auction page" loading="lazy" />
+                            <div class="gradientSell-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h1 class="h5 fw-bold text-body-emphasis lh-1 my-3">
+                            Sell at AuctionHub
+                        </h1>
+                        <p>
+                            AuctionHub is an easy and reliable platform for selling your items. Whether you’re looking
+                            to sell antiques, electronics, or collectibles, AuctionHub allows you to reach a wide
+                            audience of potential buyers. Register an user and simply create a listing, and let buyers
+                            compete in real-time bidding.
+                        </p>
+                        <div id="regUserBtnHP" class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <a class="btn btn-outline-primary pointer text-black">Register
+                                here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-cool-gray py-5">
+            <div class="container d-flex justify-content-center align-content-center">
+
+            </div>
+            <div class="container">
+                <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
+                    <img class="logo_img mb-4" src="/src/images/logo_sp2_4.png" alt="Logo AuctionHub" />
+                    <h1 class="text-body-emphasis">How to sell</h1>
+                    <div class="list-group list-group-flush col-lg-6 mx-auto mb-4">
+                        <div class="list-group-item">
+                            <i class="fa-solid fa-user-plus"></i> <strong>Register an account</strong>
+                            <p> Create a profile on AuctionHub.</p>
+                        </div>
+                        <div class="list-group-item">
+                            <i class="fa-solid fa-clipboard-list"></i> <strong>List your item</strong>
+                            <p>Upload details
+                                and
+                                high-quality photos of the item you wish to auction.</p>
+                        </div>
+                        <div class="list-group-item">
+                            <i class="fa-solid fa-clock"></i> <strong>Choose auction duration</strong>
+                            <p>Select how long
+                                the
+                                auction will run.</p>
+                        </div>
+                        <div class="list-group-item">
+                            <i class="fa-solid fa-bullhorn"></i> <strong>Promote your listing</strong>
+                            <p>Share the
+                                auction for
+                                better visibility.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a id="registerUserBtnSell" href="/Semester_project_2/html/auth/signup.html">
+                            <button class="btn btn-primary text-white shadow me-fs-5 px-5 mb-5" type="button">
+                                <p class="m-0 ms-2 text-center text-black">Register here to upload your first listing!
+                                </p>
+                            </button>
+                        </a>
+                        <button id="createListingBtnSell"
+                            class="btn btn-primary text-white shadow me-fs-5 px-5 mb-5 d-none" type="button"
+                            data-bs-toggle="modal" data-bs-target="#createListingModal" aria-expanded="false"
+                            aria-controls="newPost">
+                            <i class="fa-solid fa-pen-to-square m-auto" title="Edit profile" aria-hidden="true"></i>
+                            <p class="m-0 ms-2 text-center text-black">Create listing</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Make listing modal -->
+        <section>
+            <!-- Modal create new listing-->
+            <div class="modal fade" id="createListingModal" tabindex="-1" aria-labelledby="createListingModal"
+                aria-hidden="true">
+                <div class="modal-dialog min-vh-80 d-flex justify-content-center align-items-center">
+                    <div class="modal-content d-flex justify-content-center align-items-center">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="updTitle">
+                                Create listing:
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p href="#" class="d-flex align-items-centertext-decoration-none">
+                                <img id="userImgCL"
+                                    src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;h=400&amp;w=400"
+                                    alt="" width="
+                            32" height="32" class="rounded-circle me-2 object-fit-cover" />
+                                <strong class="mx-2" id="usernameCL">User</strong>
+                            </p>
+                            <form id="createListingForm">
+                                <!-- Title input -->
+                                <div class="input-group mb-2">
+                                    <input type="text" name="title" id="titleInput" placeholder="Title"
+                                        class="form-control" aria-label="Title" aria-label="Input title" required />
+                                </div>
+                                <!-- Description input -->
+                                <textarea class="form-control" name="description" id="listingDescriptionInput" cols=""
+                                    rows="5" placeholder="Listing description" aria-label="Input description"
+                                    required></textarea>
+                                <!-- Media inputs -->
+                                <label for="urlInput1" class="mt-2">Media</label>
+                                <div class="d-flex justify-content-end gap-4">
+                                    <!-- Media inputs container -->
+                                    <div id="mediaInputsContainer" class="d-flex flex-column gap-2 w-100">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img id="media1"
+                                                src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;h=400&amp;w=400"
+                                                alt="A blurry multi-colored rainbow background" width="32" height="32"
+                                                class="listing-media rounded-1 object-fit-cover" />
+                                            <input id="urlInput1" type="url" name="listingMedia" class="form-control"
+                                                placeholder="Image URL" aria-label="media input url" required />
+                                            <input type="text" name="listingAlt" class="form-control"
+                                                placeholder="Alt text" aria-label="media alt input" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" id="addMediaButton" class="btn btn-secondary mt-2">
+                                    Add media
+                                </button>
+                                <!-- Input for End Date -->
+                                <div class="mt-3">
+                                    <label for="listingEndDate" class="form-label">End Date</label>
+                                    <input type="datetime-local" id="listingEndDate" name="endsAt" class="form-control"
+                                        required />
+                                </div>
+
+                                <!-- Input for Tags -->
+                                <div class="mt-3">
+                                    <label for="listingTags" class="form-label">Tags (comma-separated)</label>
+                                    <input type="text" id="listingTags" name="tags" class="form-control"
+                                        placeholder="e.g. bird, car, art" required />
+                                </div>
+                                <!-- Error message badge area -->
+                                <div class="w-100 m-1">
+                                    <div id="errorMessageCreateListing" class="badge bg-warning text-bg-warning mb-3">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <!-- Submit button -->
+                                    <button id="btnCreateListing" class="btn btn-success mt-2" type="submit">
+                                        Create listing
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Modal already logged in -->
+        <div class="modal fade justify-content-center align-content-center" id="alreadyLoggedInModal" tabindex="-1"
+            aria-labelledby="alreadyLoggedInModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title h5" id="alreadyLoggedInModalLabel">
+                            Already Logged In
+                        </h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        You are already logged in. Would you like to sign out and register
+                        a new account?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-primary" id="logoutAndRegisterBtn">
+                            Sign Out and Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="py-3 pt-5 mt-auto">
+        <ul class="nav justify-content-center pb-2">
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-light">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-light">Contact us</a>
+            </li>
+        </ul>
+        <div class="d-flex justify-content-center align-content-center my-2">
+            <a href="/index.html" class="">
+                <img class="logo_img me-2" src="/src/images/logo_sp2_4.png" alt="Logo AuctionHub" />
+            </a>
+        </div>
+        <p class="text-center text-light">© 2024 AuctionHub</p>
+    </footer>
+</body>
+
+</html>

@@ -55,7 +55,7 @@ export async function displayProfileListings(url) {
     listData.forEach((list) => {
       const col = document.createElement('div');
       col.classList.add(
-        'col',
+        'col-6',
         'col-sm-6',
         'col-md-4',
         'col-lg-3',
@@ -68,7 +68,6 @@ export async function displayProfileListings(url) {
         'd-flex',
         'h-100',
         'flex-column',
-        'slider-item-2',
         'link-body-emphasis',
         'link-underline-opacity-0',
         'pointer',
@@ -81,10 +80,11 @@ export async function displayProfileListings(url) {
       const imageWrapper = document.createElement('div');
       const image = document.createElement('img');
       const cardBody = document.createElement('div');
-      const titleList = document.createElement('h5');
+      const titleList = document.createElement('h2');
       const descriptionText = document.createElement('p');
       const badgeContainer = document.createElement('div');
 
+      titleList.classList.add('h5');
       // Edit and delete listing dropdown menu
       const loggedIn = status.isLoggedIn();
       const ddMenuBtn = document.createElement('div');
@@ -165,7 +165,7 @@ export async function displayProfileListings(url) {
 
           confirmDeleteBtn.addEventListener('click', function () {
             const listingData = { id: list.id };
-            fetch.deleteListing(listingData);
+            fetch.deleteListing(listingData, list);
             deleteModal.hide();
           });
         });

@@ -16,10 +16,13 @@ let apiProfileListingsUrl;
 const loggedIn = isLoggedIn();
 const profileData = localStorage.getItem(`profile`);
 const profile = JSON.parse(profileData);
+const currentUrl = window.location.href;
 if (loggedIn === true) {
   apiOwnUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${profile.name}?${params}`;
+  if (currentUrl.includes('/Semester_project_2/html/pages/sell.html')) {
+    apiUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${profile.name}?${params}`;
+  }
 }
-const currentUrl = window.location.href;
 if (currentUrl.includes('/Semester_project_2/html/pages/profile.html')) {
   if (idProfile) {
     apiUrl = `${constants.apiHostUrl}${constants.apiProfiles}/${idProfile}?${params}`;

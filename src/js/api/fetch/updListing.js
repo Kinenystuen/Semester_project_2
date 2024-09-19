@@ -6,6 +6,7 @@ import * as constants from './../constants.js';
 const method = 'put';
 
 export async function updateListing(id, listingData) {
+  const message = document.getElementById('errorMessageUpdListing');
   try {
     const apiUrl = `${constants.apiHostUrl}${constants.apiAction}/${id}`;
     const btnUpdateListing = document.getElementById('btnUpdateListing');
@@ -28,6 +29,9 @@ export async function updateListing(id, listingData) {
       window.location.reload();
       return profile;
     } else {
+      const errorResponse = await response.json();
+      const errorMessage = errorResponse.errors[0].message;
+      message.innerHTML = errorMessage;
       if (btnUpdateListing) {
         btnUpdateListing.innerHTML = 'Update listing';
         btnUpdateListing.removeChild(loaderW);

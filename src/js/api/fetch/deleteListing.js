@@ -5,7 +5,7 @@ import * as constants from './../constants.js';
 
 const method = 'delete';
 
-export async function deleteListing(listingData) {
+export async function deleteListing(listingData, listData) {
   const apiUrl = `${constants.apiHostUrl}${constants.apiAction}/${listingData.id}`;
   try {
     const btnCreateListing = document.getElementById('btnCreateListing');
@@ -25,7 +25,18 @@ export async function deleteListing(listingData) {
     const response = await fetch(`${apiUrl}`, options);
 
     if (response.ok) {
-      window.location.reload();
+      try {
+        window.location.href = `html/pages/profile.html?user=${listData.seller.name}`;
+      } catch {
+        const currentUrl = window.location.href;
+        if (
+          currentUrl.includes('/Semester_project_2/html/pages/profile.html')
+        ) {
+          window.location.reload();
+        } else {
+          window.location.href = `html/pages/auctions.html`;
+        }
+      }
     } else {
       if (btnCreateListing) {
         btnCreateListing.innerHTML = 'Delete listing';

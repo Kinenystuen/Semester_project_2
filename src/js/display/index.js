@@ -9,3 +9,4 @@ export * from './displaySlider.js';
 export * from './displayTags.js';
 export * from './userVisibility.js';
 export * from './displayProfileListings.js';
+export * from './displaySellPage.js';

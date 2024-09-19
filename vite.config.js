@@ -12,6 +12,7 @@ export default defineConfig({
         profiles: resolve(__dirname, 'html/pages/profiles.html'),
         profile: resolve(__dirname, 'html/pages/profile.html'),
         listingitem: resolve(__dirname, 'html/pages/listingitem.html'),
+        sell: resolve(__dirname, 'html/pages/sell.html'),
         login: resolve(__dirname, 'html/auth/login.html'),
         signup: resolve(__dirname, 'html/auth/signup.html'),
       },

@@ -7,6 +7,7 @@ import * as status from './../auth/index.js';
 const method = 'put';
 
 export async function updateProfile(profileData) {
+  const message = document.getElementById('regErrorMessage');
   try {
     let apiUrl;
     const loggedIn = status.isLoggedIn();
@@ -37,7 +38,10 @@ export async function updateProfile(profileData) {
       return profile;
     } else {
       if (btnUpdateProfile) {
-        btnUpdateProfile.innerHTML = 'Create listing';
+        const errorResponse = await response.json();
+        const errorMessage = errorResponse.errors[0].message;
+        message.innerHTML = errorMessage;
+        btnUpdateProfile.innerHTML = 'Update profile';
         btnUpdateProfile.removeChild(loaderW);
       }
       throw new Error(`Failed to edit profile: ${response.statusText}`);

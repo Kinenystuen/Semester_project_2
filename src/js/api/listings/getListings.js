@@ -1,11 +1,13 @@
 import * as constants from '../constants.js';
 
 const params = '?_active=true';
-const currentUrl = window.location.href;
+const path = window.location.pathname;
 
 let apiListUrl = `${constants.apiHostUrl}${constants.apiAction}`;
-// Change the url to only have active listings in data
-if (currentUrl.includes('/Semester_project_2/')) {
+if (
+  path === '/Semester_project_2/' ||
+  path === '/Semester_project_2/index.html'
+) {
   apiListUrl += params;
 }
 

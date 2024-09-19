@@ -28,7 +28,7 @@ export async function makeListings(data, listData) {
   const gridContainer = document.createElement('div');
   gridContainer.classList.add('mt-3');
   const rowContainer = document.createElement('div');
-  rowContainer.classList.add('row', 'g-2', 'justify-content-start');
+  rowContainer.classList.add('row', 'g-1', 'justify-content-start');
   listingNumber.innerText = `${listData.length} listings`;
 
   if (listData.length === 0) {
@@ -38,7 +38,7 @@ export async function makeListings(data, listData) {
   }
   listData.forEach((list) => {
     const col = document.createElement('div');
-    col.classList.add('col', 'col-sm-6', 'col-md-4', 'col-lg-3');
+    col.classList.add('col-6', 'col-sm-6', 'col-md-4', 'col-lg-3');
 
     const card = document.createElement('a');
     card.classList.add(
@@ -46,7 +46,6 @@ export async function makeListings(data, listData) {
       'd-flex',
       'h-100',
       'flex-column',
-      'slider-item-2',
       'link-body-emphasis',
       'link-underline-opacity-0',
       'pointer',
@@ -59,7 +58,7 @@ export async function makeListings(data, listData) {
     const imageWrapper = document.createElement('div');
     const image = document.createElement('img');
     const cardBody = document.createElement('div');
-    const titleList = document.createElement('h5');
+    const titleList = document.createElement('h2');
     const descriptionText = document.createElement('p');
     const badgeContainer = document.createElement('div');
 
@@ -99,7 +98,7 @@ export async function makeListings(data, listData) {
     }
 
     titleList.innerText = list.title;
-    titleList.classList.add('card-title', 'text-start', 'h-6');
+    titleList.classList.add('card-title', 'text-start', 'h5');
 
     // Listing item description
     descriptionText.innerText = list.description

@@ -12,19 +12,29 @@ export function setUpdateProfileForm() {
       const form = event.target;
       const formData = new FormData(form);
 
-      const url = formData.get('avatarUrl');
+      const avatarUrl = formData.get('avatarUrl');
+      const bannerUrl = formData.get('bannerUrl');
 
       const profileData = {
         username: formData.get('usernameUpd'),
         bio: formData.get('bio'),
       };
-      if (url.trim() !== '') {
+
+      if (avatarUrl && avatarUrl.trim() !== '') {
         profileData.avatar = {
-          url,
-          alt: `Avatar img by ${userData.name}`,
+          url: avatarUrl,
+          alt: `Avatar img by ${userData.name || 'User'}`,
         };
       }
-      // Send new data to api
+
+      if (bannerUrl && bannerUrl.trim() !== '') {
+        profileData.banner = {
+          url: bannerUrl,
+          alt: `Banner img by ${userData.name || 'User'}`,
+        };
+      }
+
+      // Send new data to API
       updateProfile(profileData);
     });
   }

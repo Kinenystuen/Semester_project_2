@@ -48,7 +48,7 @@ export async function displayProfileListings(listData) {
 
       listData.wins.forEach((list) => {
         const col = document.createElement('div');
-        col.classList.add('col', 'col-sm-6', 'col-md-4', 'col-lg-3');
+        col.classList.add('col-6', 'col-sm-6', 'col-md-4', 'col-lg-3');
 
         const card = document.createElement('a');
         card.classList.add(
@@ -56,7 +56,6 @@ export async function displayProfileListings(listData) {
           'd-flex',
           'h-100',
           'flex-column',
-          'slider-item-2',
           'link-body-emphasis',
           'link-underline-opacity-0',
           'pointer',
@@ -69,7 +68,7 @@ export async function displayProfileListings(listData) {
         const imageWrapper = document.createElement('div');
         const image = document.createElement('img');
         const cardBody = document.createElement('div');
-        const titleList = document.createElement('h5');
+        const titleList = document.createElement('h2');
         const descriptionText = document.createElement('p');
         const badgeContainer = document.createElement('div');
 
@@ -109,7 +108,7 @@ export async function displayProfileListings(listData) {
         }
 
         titleList.innerText = list.title;
-        titleList.classList.add('card-title', 'text-start', 'h-6');
+        titleList.classList.add('card-title', 'text-start', 'h5');
 
         // Listing item description
         descriptionText.innerText = list.description
