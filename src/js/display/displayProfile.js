@@ -27,6 +27,7 @@ export async function displayProfile(url) {
       document.title = 'AuctionHub | Profile - ' + `${profileData.name}`;
       const BCProfileName = document.getElementById('BCProfileName');
       const profileBio = document.getElementById('profileBio');
+      const profileBanner = document.getElementById('profileBanner');
       const profileImg = document.getElementById('profileImg');
       const profileName = document.getElementById('profileName');
       if (profileData.bio !== null) {
@@ -34,8 +35,11 @@ export async function displayProfile(url) {
       } else {
         profileBio.innerText = `${profileData.name} has been busy chasing squirrels around the neighborhood trying to convince them to ghostwrite their bio. `;
       }
+      console.log(profileData);
       profileImg.src = profileData.avatar.url;
       profileImg.alt = `${profileData.name}'s avatar`;
+      profileBanner.src = profileData.banner.url;
+      profileBanner.alt = profileData.banner.alt;
       profileName.innerText = profileData.name;
 
       // ul menu
@@ -53,14 +57,19 @@ export async function displayProfile(url) {
 
       // dropdown menu
       ddMenuBtn.classList.add(
-        'd-flex',
-        'p-3',
         'btn',
+        'btn-primary',
+        'text-white',
+        'shadow',
+        'me-fs-5',
         'd-flex',
-        'align-items-center',
-        'align-self-start',
-        'link-body-emphasis',
-        'text-decoration-none',
+        'justify-content-center',
+        'align-content-center',
+        'position-absolute',
+        'top-0',
+        'end-0',
+        'me-4',
+        'mt-2',
       );
       ddMenuBtn.setAttribute('data-bs-toggle', 'dropdown');
       ddMenuBtn.setAttribute('type', 'button');
@@ -126,7 +135,7 @@ export async function displayProfile(url) {
         createListingBtn.classList.remove('d-none');
         createListingBtn.classList.add('d-block');
         creditDiv.classList.remove('d-none');
-        creditDiv.classList.add('d-block');
+        creditDiv.classList.add('d-flex');
 
         updBtn.appendChild(ddMenuBtn);
       } else {
