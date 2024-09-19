@@ -83,6 +83,17 @@ export async function displayProfileListings(url) {
       const titleList = document.createElement('h2');
       const descriptionText = document.createElement('p');
       const badgeContainer = document.createElement('div');
+      const currentBid = document.createElement('strong');
+      const lastBid =
+        list.bids && list.bids.length > 0
+          ? list.bids[list.bids.length - 1].amount
+          : null;
+      currentBid.classList.add('mx-1');
+      if (lastBid !== null) {
+        currentBid.innerText = `$${lastBid}`;
+      }
+      currentBid.innerText = `$${lastBid}`;
+      badgeContainer.appendChild(currentBid);
 
       titleList.classList.add('h5');
       // Edit and delete listing dropdown menu
@@ -238,6 +249,11 @@ export async function displayProfileListings(url) {
         activeBadge.classList.add('badge', 'bg-success', 'me-2', 'text-dark');
         activeBadge.innerText = 'Active';
         badgeContainer.appendChild(activeBadge);
+      } else {
+        const endedBadge = document.createElement('span');
+        endedBadge.classList.add('badge', 'bg-secondary', 'me-2', 'text-white');
+        endedBadge.innerText = 'Ended';
+        badgeContainer.appendChild(endedBadge);
       }
 
       // Check if the item is ending soon (next 72 hours)
