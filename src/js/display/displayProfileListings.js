@@ -216,6 +216,8 @@ export async function displayProfileListings(url) {
         'justify-content-end',
         'align-items-center',
         'mt-2',
+        'flex-wrap',
+        'flex-wrap-reverse',
       );
 
       if (list.media[0]) {

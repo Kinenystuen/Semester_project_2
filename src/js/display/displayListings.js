@@ -94,6 +94,8 @@ export async function makeListings(data, listData) {
       'justify-content-end',
       'align-items-center',
       'mt-2',
+      'flex-wrap',
+      'flex-wrap-reverse',
     );
 
     if (list.media[0]) {
