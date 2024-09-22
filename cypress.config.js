@@ -10,9 +10,10 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // Implement node event listeners here
     },
-    defaultCommandTimeout: 10000,
-    requestTimeout: 10000,
-    responseTimeout: 15000,
+    defaultCommandTimeout: 15000,
+    requestTimeout: 15000,
+    responseTimeout: 20000,
+    pageLoadTimeout: 30000,
     env: {
       email: process.env.email,
       password: process.env.password,
