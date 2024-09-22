@@ -46,7 +46,7 @@
         <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
           data-bs-toggle="dropdown" aria-expanded="false">
           <strong class="mx-2" id="username">User</strong>
-          <img id="userImg" src="" alt="" width="32" height="32" class="rounded-circle me-2 object-fit-cover" />
+          <img id="userImg" alt="User avatar img" width="32" height="32" class="rounded-circle me-2 object-fit-cover" />
         </a>
         <ul class="dropdown-menu dropdown-menu-end text-small shadow">
           <li>
@@ -73,9 +73,9 @@
           <a href="/Semester_project_2/html/pages/auctions.html"
             class="nav-link px-2 link-body-emphasis text-uppercase">Auctions</a>
         </li>
-        <li class="nav-item"></li>
-        <a href="/Semester_project_2/html/pages/sell.html"
-          class="nav-link px-2 link-body-emphasis text-uppercase">Sell</a>
+        <li class="nav-item">
+          <a href="/Semester_project_2/html/pages/sell.html"
+            class="nav-link px-2 link-body-emphasis text-uppercase">Sell</a>
         </li>
         <li class="nav-item d-none" id="profileLink">
           <a href="/Semester_project_2/html/pages/profiles.html"
@@ -89,8 +89,7 @@
     <div class="container d-flex align-items-baseline gap-3">
       <nav style="
             --bs-breadcrumb-divider: url(
-              &#34;data:image/svg + xml,
-              %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;
+              'data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;8&quot; height=&quot;8&quot;%3E%3Cpath d=&quot;M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z&quot; fill=&quot;%236c757d&quot;/%3E%3C/svg%3E'
             );
           " aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -112,11 +111,11 @@
             <h1 class="h2 fw-bold text-body-emphasis lh-1 m-0">Auctions</h1>
             <small id="listingNumber" class="card-text description-text lead text-muted"></small>
             <div class="d-flex justify-content-start align-items-center">
-              <p id="visibleData" class="visibleData text-muted small m-0"></p>
-              <button id="previousPage" class="previousPageBtn btn btn-sm buttonCustom" title="Previous page">
+              <p class="visibleData text-muted small m-0"></p>
+              <button class="previousPageBtn btn btn-sm buttonCustom" title="Previous page">
                 <i class="fa-solid fa-arrow-left"></i>
               </button>
-              <button id="nextPage" class="nextPageBtn btn btn-sm buttonCustom" title="Next page">
+              <button class="nextPageBtn btn btn-sm buttonCustom" title="Next page">
                 <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
@@ -167,8 +166,7 @@
 
             <!-- Search -->
             <form class="d-flex fit-content" role="search">
-              <input id="search-input" class="form-control" type="search" placeholder="Search" aria-label="Search"
-                aria-placeholder="Search" />
+              <input id="search-input" class="form-control" type="search" placeholder="Search" aria-label="Search" />
             </form>
           </div>
         </div>
@@ -181,12 +179,12 @@
       </div>
     </section>
     <div id="pageButtons" class="container d-flex justify-content-center align-items-center flex-column">
-      <p id="visibleData" class="visibleData text-muted small m-0"></p>
+      <p class="visibleData text-muted small m-0"></p>
       <div class="d-flex gap-2 justify-content-center m-1 mb-3 mx-auto">
-        <button id="previousPage" class="previousPageBtn btn btn-sm buttonCustom" title="Previous page">
+        <button class="previousPageBtn btn btn-sm buttonCustom" title="Previous page">
           <i class="fa-solid fa-arrow-left"></i>
         </button>
-        <button id="nextPage" class="nextPageBtn btn btn-sm buttonCustom" title="Next page">
+        <button class="nextPageBtn btn btn-sm buttonCustom" title="Next page">
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>

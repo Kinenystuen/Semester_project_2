@@ -45,7 +45,7 @@
                 <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <strong class="mx-2" id="username">User</strong>
-                    <img id="userImg" src="" alt="" width="32" height="32"
+                    <img id="userImg" alt="User avatar img" width="32" height="32"
                         class="rounded-circle me-2 object-fit-cover" />
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end text-small shadow">
@@ -73,9 +73,9 @@
                     <a href="html/pages/auctions.html"
                         class="nav-link px-2 link-body-emphasis text-uppercase">Auctions</a>
                 </li>
-                <li class="nav-item"></li>
-                <a href="/Semester_project_2/html/pages/sell.html"
-                    class="nav-link px-2 link-body-emphasis text-uppercase">Sell</a>
+                <li class="nav-item">
+                    <a href="/Semester_project_2/html/pages/sell.html"
+                        class="nav-link px-2 link-body-emphasis text-uppercase">Sell</a>
                 </li>
                 <li class="nav-item d-none" id="profileLink">
                     <a href="html/pages/profiles.html"
@@ -92,8 +92,7 @@
             </button>
             <nav style="
             --bs-breadcrumb-divider: url(
-              &#34;data:image/svg + xml,
-              %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;
+              'data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;8&quot; height=&quot;8&quot;%3E%3Cpath d=&quot;M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z&quot; fill=&quot;%236c757d&quot;/%3E%3C/svg%3E'
             );
           " aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-chevron p-0 rounded-3">
@@ -138,11 +137,11 @@
                 <div class="container-fluid position-relative">
                     <div class="row justify-content-center">
                         <div class="col-12 text-center">
-                            <img id="profileBanner" src="" alt="Cover" class="img-fluid rounded w-100"
+                            <img id="profileBanner" alt="User banner img" class="img-fluid rounded w-100"
                                 style="height: 200px; object-fit: cover;">
                         </div>
                         <div class="col-12 col-md-4 text-center">
-                            <img id="profileImg" src="" alt="Avatar" class="rounded-circle"
+                            <img id="profileImg" alt="User avatar img" class="rounded-circle"
                                 style="width: 200px; height: 200px; object-fit: cover; margin-top: -35%; border: 5px solid #f7f7f7; background-color: #f7f7f7;">
                         </div>
                     </div>
@@ -166,10 +165,10 @@
                                 <button
                                     class="btn btn-primary text-white shadow me-fs-5 d-flex justify-content-center align-content-center"
                                     type="button" data-bs-toggle="modal" data-bs-target="#createListingModal"
-                                    aria-expanded="false" aria-controls="newPost">
+                                    aria-expanded="false" aria-controls="createListingModal">
                                     <i class="fa-solid fa-pen-to-square m-auto" title="Edit profile"
                                         aria-hidden="true"></i>
-                                    <p class="m-0 ms-2 text-center">Create new listing</p>
+                                    <span class="m-0 ms-2 text-center">Create new listing</span>
                                 </button>
                             </div>
                         </div>
@@ -222,9 +221,9 @@
             <div class="modal-dialog min-vh-80 d-flex justify-content-center align-items-center">
                 <div class="modal-content d-flex justify-content-center align-items-center">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="updTitle">
+                        <h2 class="modal-title fs-5" id="updTitle">
                             Update your profile:
-                        </h1>
+                        </h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -235,24 +234,24 @@
                                     aria-label="Username" disabled />
                             </div>
                             <!-- Bio input -->
-                            <textarea class="form-control" name="bio" id="updBioInput" cols="" rows="5"
+                            <textarea class="form-control" name="bio" id="updBioInput" cols="30" rows="5"
                                 placeholder="Your bio" aria-label="Bio input"></textarea>
                             <div class="w-100 m-1">
                                 <div id="regErrorMessage" class="badge bg-warning text-bg-warning mb-3"></div>
                             </div>
                             <!-- Banner url input -->
-                            <label for="bannerUrl" class="label label-default">Banner</label>
+                            <label for="updBannerUrlInput" class="label label-default">Banner</label>
                             <div class="d-flex w-100">
                                 <span
                                     class="input-group-text d-flex flex-column align-items-center justify-content-center bg-white">
                                     <img id="updPostBannerProfile" src="" alt="" width="32" height="32"
                                         class="object-fit-cover rounded-1" />
                                 </span>
-                                <input type="url" name="bannerUrl" id="updBannerUrlInput" alt="Banner"
-                                    class="form-control" aria-label="Avatar input" placeholder="Banner url" />
+                                <input type="url" name="bannerUrl" id="updBannerUrlInput" class="form-control"
+                                    aria-label="Avatar input" placeholder="Banner url" />
                             </div>
                             <!-- Img url input -->
-                            <label for="avatarUrl" class="label label-default">Avatar</label>
+                            <label for="updAvatarUrlInput" class="label label-default">Avatar</label>
                             <div class="d-flex justify-content-end mt-2 gap-4">
                                 <div class="d-flex w-100">
                                     <span
@@ -262,8 +261,8 @@
                                             alt="A blurry multi-colored rainbow background" width="32" height="32"
                                             class="rounded-circle object-fit-cover" />
                                     </span>
-                                    <input type="url" name="avatarUrl" id="updAvatarUrlInput" alt="Avatar"
-                                        class="form-control" aria-label="Avatar input" placeholder="Avatar url" />
+                                    <input type="url" name="avatarUrl" id="updAvatarUrlInput" class="form-control"
+                                        aria-label="Avatar input" placeholder="Avatar url" />
                                 </div>
                                 <!-- Submit button -->
                                 <button id="btnUpdateProfile" class="btn btn-success" type="submit">
@@ -281,17 +280,17 @@
             <div class="modal-dialog min-vh-80 d-flex justify-content-center align-items-center">
                 <div class="modal-content d-flex justify-content-center align-items-center">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="updTitle">
+                        <h1 class="modal-title fs-5" id="createTitle">
                             Create new listing:
                         </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p href="#" class="d-flex align-items-centertext-decoration-none">
+                        <p class="d-flex align-items-centertext-decoration-none">
                             <img id="userImgCL"
                                 src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;h=400&amp;w=400"
-                                alt="" width="
-                                32" height="32" class="rounded-circle me-2 object-fit-cover" />
+                                alt="User avatar img" width="32" height="32"
+                                class="rounded-circle me-2 object-fit-cover" />
                             <strong class="mx-2" id="usernameCL">User</strong>
                         </p>
                         <form id="createListingForm">
@@ -301,7 +300,7 @@
                                     aria-label="Title" required />
                             </div>
                             <!-- Description input -->
-                            <textarea class="form-control" name="description" id="listingDescriptionInput" cols=""
+                            <textarea class="form-control" name="description" id="listingDescriptionInput" cols="30"
                                 rows="5" placeholder="Listing description" aria-label="Listing descrption input"
                                 required></textarea>
                             <!-- Media inputs -->
@@ -358,7 +357,7 @@
             <div class="modal-dialog min-vh-80 d-flex justify-content-center align-items-center">
                 <div class="modal-content d-flex justify-content-center align-items-center">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="updTitle">Update listing:</h1>
+                        <h1 class="modal-title fs-5" id="updTitleListing">Update listing:</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -369,7 +368,7 @@
                                     class="form-control" aria-label="Title" required />
                             </div>
                             <!-- Description input -->
-                            <textarea class="form-control" name="description" id="updListingDescriptionInput" cols=""
+                            <textarea class="form-control" name="description" id="updListingDescriptionInput" cols="30"
                                 rows="5" placeholder="Listing description" aria-label="Listing description input"
                                 required></textarea>
                             <!-- Media inputs -->
