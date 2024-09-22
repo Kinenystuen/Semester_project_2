@@ -14,6 +14,12 @@ jobs:
       - name: Checkout under $GITHUB_WORKSPACE
         uses: actions/checkout@v3
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
       - name: Install dependencies
         run: npm ci
 
@@ -26,4 +32,3 @@ jobs:
           password: ${{ secrets.password }}
           VITE_API_HOST_URL: ${{ secrets.VITE_API_HOST_URL }}
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          CYPRESS_DEBUG: 1
