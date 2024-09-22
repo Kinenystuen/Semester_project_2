@@ -3,12 +3,10 @@ import * as constants from '../constants.js';
 import { clearHTML } from '../../utilitis/clearHTML.js';
 import { loaderW } from '../../utilitis/loader.js';
 
-// const method = "post";
-const message = document.getElementById('regErrorMessage');
-const loginBtn = document.getElementById('loginBtn');
-let loginURL;
-
 export async function login(profile, action, method) {
+  const message = document.getElementById('regErrorMessage');
+  const loginBtn = document.getElementById('loginBtn');
+  let loginURL;
   if (action !== '/auth/login') {
     const actionURL = new URL(action);
     loginURL = `${constants.apiHostUrl}${actionURL.pathname}`;
