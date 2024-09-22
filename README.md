@@ -9,6 +9,8 @@ The full noroff assignment you can find here ([Semester Project 2 brief](https:/
 ## Status
 
 [![Deploy static content to Pages](https://github.com/Kinenystuen/Semester_project_2/actions/workflows/static.yml/badge.svg)](https://github.com/Kinenystuen/Semester_project_2/actions/workflows/static.yml)
+[![Automated Unit Testing](https://github.com/Kinenystuen/Semester_project_2/actions/workflows/unit-test.yml/badge.svg)](https://github.com/Kinenystuen/Semester_project_2/actions/workflows/unit-test.yml)
+
 
 ## Built with
 
