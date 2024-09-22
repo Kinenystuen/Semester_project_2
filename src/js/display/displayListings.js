@@ -36,7 +36,7 @@ export async function makeListings(data, listData) {
     returnMessage(listings, message);
     return;
   }
-  listData.forEach((list) => {
+  listData.forEach((list, index) => {
     const col = document.createElement('div');
     col.classList.add('col-6', 'col-sm-6', 'col-md-4', 'col-lg-3');
 
@@ -52,7 +52,7 @@ export async function makeListings(data, listData) {
       'bg-white',
       'm-0',
     );
-    card.id = 'listingCard';
+    card.id = `listingCard-${index}`;
     card.href = `html/pages/listingitem.html?id=${list.id}`;
 
     const imageWrapper = document.createElement('div');
