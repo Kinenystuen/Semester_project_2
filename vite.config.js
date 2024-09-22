@@ -29,11 +29,4 @@ export default defineConfig({
       '@': '/src',
     },
   },
-  define: {
-    // These will be replaced by their actual values during the build
-    'process.env.VITE_API_HOST_URL': JSON.stringify(
-      process.env.VITE_API_HOST_URL,
-    ),
-    'process.env.VITE_API_KEY': JSON.stringify(process.env.VITE_API_KEY),
-  },
 });
