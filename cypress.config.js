@@ -16,6 +16,8 @@ module.exports = defineConfig({
     env: {
       email: process.env.email,
       password: process.env.password,
+      VITE_API_HOST_URL: process.env.VITE_API_HOST_URL,
+      VITE_API_KEY: process.env.VITE_API_KEY,
     },
   },
 });
