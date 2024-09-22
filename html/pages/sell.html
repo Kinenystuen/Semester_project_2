@@ -44,7 +44,7 @@
                 <a class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <strong class="mx-2" id="username">User</strong>
-                    <img id="userImg" src="" alt="" width="32" height="32"
+                    <img id="userImg" alt="User avatar img" width="32" height="32"
                         class="rounded-circle me-2 object-fit-cover" />
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end text-small shadow">
@@ -107,7 +107,7 @@
                             compete in real-time bidding.
                         </p>
                         <div id="regUserBtnHP" class="d-grid gap-2 d-md-flex justify-content-md-start">
-                            <a class="btn btn-outline-primary pointer text-black">Register
+                            <a class="btn btn-outline-primary pointer">Register
                                 here</a>
                         </div>
                     </div>
@@ -147,18 +147,16 @@
                         </div>
                     </div>
                     <div>
-                        <a id="registerUserBtnSell" href="/Semester_project_2/html/auth/signup.html">
-                            <button class="btn btn-primary text-white shadow me-fs-5 px-5 mb-5" type="button">
-                                <p class="m-0 ms-2 text-center text-black">Register here to upload your first listing!
-                                </p>
-                            </button>
+                        <a id="registerUserBtnSell" href="/Semester_project_2/html/auth/signup.html"
+                            class="btn btn-primary text-white shadow me-fs-5 px-5 mb-5">
+                            <p class="m-0 ms-2 text-center text-black">Register here to upload your first listing!</p>
                         </a>
                         <button id="createListingBtnSell"
                             class="btn btn-primary text-white shadow me-fs-5 px-5 mb-5 d-none" type="button"
                             data-bs-toggle="modal" data-bs-target="#createListingModal" aria-expanded="false"
-                            aria-controls="newPost">
+                            aria-controls="createListingModal">
                             <i class="fa-solid fa-pen-to-square m-auto" title="Edit profile" aria-hidden="true"></i>
-                            <p class="m-0 ms-2 text-center text-black">Create listing</p>
+                            <p class="m-0 ms-2 text-center strong">Create listing</p>
                         </button>
                     </div>
                 </div>
@@ -178,21 +176,21 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p href="#" class="d-flex align-items-centertext-decoration-none">
+                            <p class="d-flex align-items-centertext-decoration-none">
                                 <img id="userImgCL"
                                     src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;h=400&amp;w=400"
-                                    alt="" width="
-                            32" height="32" class="rounded-circle me-2 object-fit-cover" />
+                                    alt="User avatar img" width="32" height="32"
+                                    class="rounded-circle me-2 object-fit-cover" />
                                 <strong class="mx-2" id="usernameCL">User</strong>
                             </p>
                             <form id="createListingForm">
                                 <!-- Title input -->
                                 <div class="input-group mb-2">
                                     <input type="text" name="title" id="titleInput" placeholder="Title"
-                                        class="form-control" aria-label="Title" aria-label="Input title" required />
+                                        class="form-control" aria-label="Input title" required />
                                 </div>
                                 <!-- Description input -->
-                                <textarea class="form-control" name="description" id="listingDescriptionInput" cols=""
+                                <textarea class="form-control" name="description" id="listingDescriptionInput" cols="30"
                                     rows="5" placeholder="Listing description" aria-label="Input description"
                                     required></textarea>
                                 <!-- Media inputs -->

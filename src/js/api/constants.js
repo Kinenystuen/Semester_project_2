@@ -1,9 +1,16 @@
-export const apiHostUrl = import.meta.env.VITE_API_HOST_URL;
-export const apiAuth = import.meta.env.VITE_API_AUTH;
-export const apiLogin = import.meta.env.VITE_API_LOGIN;
-export const apiRegister = import.meta.env.VITE_API_REGISTER;
-export const apiAction = import.meta.env.VITE_API_ACTION;
-export const apiProfiles = import.meta.env.VITE_API_PROFILES;
-export const apiListings = import.meta.env.VITE_API_LISTINGS;
+// ApiHostUrl and apiKey as secrets hidden in .env file
+export const apiHostUrl =
+  typeof Cypress !== 'undefined'
+    ? Cypress.env('VITE_API_HOST_URL')
+    : import.meta.env.VITE_API_HOST_URL;
+export const apiKey =
+  typeof Cypress !== 'undefined'
+    ? Cypress.env('VITE_API_KEY')
+    : import.meta.env.VITE_API_KEY;
 
-export const apiKey = import.meta.env.VITE_API_KEY;
+export const apiAuth = '/auth';
+export const apiLogin = '/login';
+export const apiRegister = '/register';
+export const apiAction = '/auction/listings';
+export const apiProfiles = '/auction/profiles';
+export const apiListings = '/listings';

@@ -45,8 +45,8 @@
                 <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <strong class="mx-2" id="username">User</strong>
-                    <img id="userImg" src="" alt="" width="32" height="32" class="rounded-circle me-2 object-fit-cover"
-                        alt="User avatar" />
+                    <img id="userImg" width="32" height="32" class="rounded-circle me-2 object-fit-cover"
+                        alt="User avatar img" />
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end text-small shadow">
                     <li>
@@ -73,9 +73,8 @@
                     <a href="html/pages/auctions.html"
                         class="nav-link px-2 link-body-emphasis text-uppercase">Auctions</a>
                 </li>
-                <li class="nav-item"></li>
-                <a href="/Semester_project_2/html/pages/sell.html"
-                    class="nav-link px-2 link-body-emphasis text-uppercase">Sell</a>
+                <li class="nav-item">
+                    <a href="html/pages/sell.html" class="nav-link px-2 link-body-emphasis text-uppercase">Sell</a>
                 </li>
                 <li class="nav-item d-none" id="profileLink">
                     <a href="html/pages/profiles.html"
@@ -89,8 +88,7 @@
         <div class="container d-flex align-items-baseline gap-3">
             <nav style="
             --bs-breadcrumb-divider: url(
-              &#34;data:image/svg + xml,
-              %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;
+              'data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;8&quot; height=&quot;8&quot;%3E%3Cpath d=&quot;M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z&quot; fill=&quot;%236c757d&quot;/%3E%3C/svg%3E'
             );
           " aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-chevron p-0 rounded-3">
@@ -137,8 +135,6 @@
                 </div>
                 <div>
                     <h2 class="fs-4 text-body-emphasis">Bidding</h2>
-                    <p id="countdownEndDate" class="mb-0"></p>
-                    <p id="endDate" class="mb-0 fst-italic"></p>
                 </div>
             </div>
             <div id="bidSection" class="d-flex justify-content-center align-content-center mb-5 px-4">
@@ -236,7 +232,7 @@
                                 </div>
                                 <!-- Description input -->
                                 <textarea class="form-control" name="description" id="updListingDescriptionInput"
-                                    cols="" rows="5" placeholder="Listing description"
+                                    cols="30" rows="5" placeholder="Listing description"
                                     aria-label="Listing description textarea" required></textarea>
                                 <!-- Media inputs -->
                                 <label for="urlInput-1" class="mt-2">Media</label>

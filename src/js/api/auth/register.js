@@ -3,7 +3,6 @@ import { clearHTML } from '../../utilitis/clearHTML.js';
 import { loaderW } from '../../utilitis/loader.js';
 import { login } from './login.js';
 
-const registerBtn = document.getElementById('registerBtn');
 /**
  * Function to register a new profile using form entries from another function
  * If success it will then run the login function with the register data to log in
@@ -13,6 +12,7 @@ const registerBtn = document.getElementById('registerBtn');
  * @returns
  */
 export async function register(profile, action, method) {
+  const registerBtn = document.getElementById('registerBtn');
   const actionURL = new URL(action);
   const registerURL = `${constants.apiHostUrl}${actionURL.pathname}`;
   const message = document.getElementById('regErrorMessage');
