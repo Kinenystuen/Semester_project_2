@@ -51,6 +51,7 @@ export async function makeListings(data, listData) {
       'pointer',
       'bg-white',
       'm-0',
+      'listingCard',
     );
     card.id = `listingCard-${index}`;
     card.href = `html/pages/listingitem.html?id=${list.id}`;
@@ -72,7 +73,7 @@ export async function makeListings(data, listData) {
     }
     badgeContainer.appendChild(currentBid);
 
-    imageWrapper.classList.add('ratio', 'ratio-1x1');
+    imageWrapper.classList.add('ratio', 'ratio-1x1', 'listImage');
     imageWrapper.id = 'listImage';
     cardBody.classList.add(
       'card-body',

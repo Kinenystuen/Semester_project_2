@@ -15,7 +15,7 @@
     "lint-fix": "eslint src/**/*.js --cache --fix",
     "prepare": "husky install",
     "vite": "vite",
-    "dev": "npm-run-all --parallel watch vite",
+    "dev": "npm-run-all --parallel sass-build watch vite",
     "build": "npm run sass-build && vite build",
     "preview": "npm run build && vite preview --port 8080",
     "test": "npm run test-unit && npm run test-e2e-cli",
